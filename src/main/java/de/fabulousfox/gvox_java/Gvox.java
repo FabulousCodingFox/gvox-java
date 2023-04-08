@@ -18,10 +18,12 @@ import de.fabulousfox.gvox_java.nativelayer.__GvoxNativeRuntimeHelper;
 import de.fabulousfox.gvox_java.nativelayer.__GvoxNativeIncludeInterface;
 import de.fabulousfox.gvox_java.structs.GvoxRegionRange;
 
+import java.io.*;
 import java.lang.foreign.MemoryLayout;
 import java.lang.foreign.MemorySegment;
 import java.lang.foreign.StructLayout;
 import java.lang.foreign.ValueLayout;
+import java.nio.channels.FileChannel;
 import java.util.HashMap;
 import java.util.List;
 
@@ -47,12 +49,43 @@ public class Gvox {
         adapterInfos = new HashMap<>();
         adapterContexts = new HashMap<>();
 
-        String osIdentifier = switch (System.getProperty("os.name")) {
-            case "Windows 10" -> "win64";
-            default -> throw new IllegalStateException("Unsupported OS: " + System.getProperty("os.name"));
-        };
+        String osName = System.getProperty("os.name");
+        String osIdentifier;
+        String targetFolder;
 
-        //TODO: Load dll
+        if(osName.startsWith("Windows")) {
+            osIdentifier = "win64";
+            targetFolder = "C:/tmp/gvox/" + osIdentifier + "/";
+
+            File targetFolderFile = new File(targetFolder, VERSION + ".dll");
+
+            if(!targetFolderFile.exists()){
+                try {
+                    targetFolderFile.mkdirs();
+                    targetFolderFile.createNewFile();
+
+                    FileInputStream inputStream = (FileInputStream) Gvox.class.getResourceAsStream("osIdentifier/" + VERSION + ".dll");
+                    FileOutputStream outputStream = new FileOutputStream(targetFolderFile);
+
+                    final FileChannel inChannel = inputStream.getChannel();
+                    final FileChannel outChannel = outputStream.getChannel();
+
+                    inChannel.transferTo(0, inChannel.size(), outChannel);
+
+                    inChannel.close();
+                    outChannel.close();
+                    inputStream.close();
+                    outputStream.close();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            System.load(targetFolderFile.getAbsolutePath());
+
+        } else {
+            throw new IllegalStateException("Unsupported OS: " + osName);
+        }
 
         initialized = true;
     }
