@@ -23,14 +23,11 @@ import java.lang.foreign.MemoryLayout;
 import java.lang.foreign.MemorySegment;
 import java.lang.foreign.StructLayout;
 import java.lang.foreign.ValueLayout;
-import java.net.URL;
-import java.nio.channels.FileChannel;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Objects;
 
 import static java.lang.foreign.ValueLayout.*;
 
@@ -59,8 +56,11 @@ public class Gvox {
         if(osName.startsWith("Windows")) {
             try{
                 Path temp = Files.createTempFile("resource-", ".dll");
-                InputStream is = Gvox.class.getResourceAsStream("win64/" + VERSION + ".dll");
+                String path = "win64/gvox" + VERSION.replace(".", "_") + ".dll";
+
+                InputStream is = Gvox.class.getClassLoader().getResourceAsStream(path);
                 if(is == null) throw new RuntimeException("Failed to load native library");
+
                 Files.copy(is, temp, StandardCopyOption.REPLACE_EXISTING);
                 System.load(temp.toAbsolutePath().toString());
             } catch (IOException e) {

@@ -6,12 +6,11 @@
 
     <groupId>de.fabulousfox</groupId>
     <artifactId>gvox-java</artifactId>
-    <packaging>pom</packaging>
     <version>1.2.5</version>
 
     <properties>
-        <maven.compiler.source>1.20</maven.compiler.source>
-        <maven.compiler.target>1.20</maven.compiler.target>
+        <maven.compiler.source>20</maven.compiler.source>
+        <maven.compiler.target>20</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
