@@ -6,6 +6,7 @@ import de.fabulousfox.gvox_java.consumerapi.GvoxBaseAdapterInfo;
 import de.fabulousfox.gvox_java.consumerapi.GvoxContext;
 import de.fabulousfox.gvox_java.consumerapi.config.input.GvoxByteBufferInputAdapterConfig;
 import de.fabulousfox.gvox_java.consumerapi.config.input.GvoxFileInputAdapterConfig;
+import de.fabulousfox.gvox_java.consumerapi.config.output.GvoxByteBufferOutputAdapterConfig;
 import de.fabulousfox.gvox_java.consumerapi.config.output.GvoxFileOutputAdapterConfig;
 import de.fabulousfox.gvox_java.consumerapi.config.parse.GvoxVoxlapParseAdapterConfig;
 import de.fabulousfox.gvox_java.consumerapi.config.serialize.GvoxColoredTextSerializeAdapterConfig;
@@ -230,6 +231,15 @@ public class Gvox {
                 configMem.set(JAVA_LONG, 8, config1.downscale_mode.ordinal());
                 configMem.set(JAVA_LONG, 16, config1.non_color_max_value == -1 ? 255 : config1.non_color_max_value);
                 configMem.set(JAVA_INT, 24, config1.vertical ? 1 : 0);
+            }
+            if(config instanceof GvoxByteBufferOutputAdapterConfig config1){
+                StructLayout layout = MemoryLayout.structLayout(
+                        ADDRESS.withBitAlignment(64).asUnbounded().withName("out_size"),
+                        ADDRESS.withBitAlignment(64).asUnbounded().withName("out_byte_buffer_ptr"),
+                        ADDRESS.withBitAlignment(64).asUnbounded().withName("allocate")
+                );
+                configMem = __GvoxNativeRuntimeHelper.arena.allocate(layout);
+                //TODO
             }
         }
 
