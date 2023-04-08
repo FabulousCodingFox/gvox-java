@@ -31,6 +31,8 @@ public class Gvox {
     private Gvox() {
     }
 
+    public static final String VERSION = "1.2.5";
+
     private static boolean initialized = false;
 
     private static HashMap<GvoxContext, MemorySegment> contexts = new HashMap<>();
@@ -44,6 +46,14 @@ public class Gvox {
         adapters = new HashMap<>();
         adapterInfos = new HashMap<>();
         adapterContexts = new HashMap<>();
+
+        String osIdentifier = switch (System.getProperty("os.name")) {
+            case "Windows" -> "win64";
+            default -> throw new IllegalStateException("Unsupported OS: " + System.getProperty("os.name"));
+        };
+
+        //TODO: Load dll
+
         initialized = true;
     }
 
@@ -77,9 +87,7 @@ public class Gvox {
         MemorySegment mem = contexts.getOrDefault(ctx, null);
         if (mem == null) throw new GvoxContextNullException();
         return GvoxResult.fromInt(gvox_h.gvox_get_result(mem));
-    }
-
-    ;
+    };
 
     public static String get_result_message(GvoxContext ctx) {
         checkInit();
@@ -92,18 +100,14 @@ public class Gvox {
         MemorySegment str_buffer = RuntimeHelper.arena.allocateArray(ValueLayout.OfByte.JAVA_CHAR, size);
         gvox_h.gvox_get_result_message(contextMem, str_buffer, str_size);
         return str_buffer.getUtf8String(0);
-    }
-
-    ;
+    };
 
     public static void pop_result(GvoxContext ctx) {
         checkInit();
         MemorySegment contextMem = contexts.getOrDefault(ctx, null);
         if (contextMem == null) throw new GvoxContextNullException();
         gvox_h.gvox_pop_result(contextMem);
-    }
-
-    ;
+    };
 
     public static GvoxAdapter get_input_adapter(GvoxContext context, String name) {
         checkInit();
@@ -253,7 +257,7 @@ public class Gvox {
         gvox_h.gvox_blit_region(inputContextMem, outputContextMem, parseContextMem, serializeContextMem, regionRange, targetChannels);
     }
 
-    /*public static void blit_region_parse_driven(
+    public static void blit_region_parse_driven(
             GvoxAdapterContext inputContext,
             GvoxAdapterContext outputContext,
             GvoxAdapterContext parseContext,
@@ -261,13 +265,20 @@ public class Gvox {
             GvoxRegionRange range,
             List<GvoxChannelBit> channels
     ){
-        gvox_h.gvox_blit_region_parse_driven(
-                adapterContexts.get(inputContext),
-                adapterContexts.get(outputContext),
-                adapterContexts.get(parseContext),
-                adapterContexts.get(serializeContext),
-                fromGvoxRegionRange(range),
-                fromGvoxChannelBit(channels));
+        checkInit();
+        MemorySegment inputContextMem = adapterContexts.getOrDefault(inputContext, null);
+        MemorySegment outputContextMem = adapterContexts.getOrDefault(outputContext, null);
+        MemorySegment parseContextMem = adapterContexts.getOrDefault(parseContext, null);
+        MemorySegment serializeContextMem = adapterContexts.getOrDefault(serializeContext, null);
+        if (inputContextMem == null) throw new GvoxAdapterContextNullException("inputContext");
+        if (outputContextMem == null) throw new GvoxAdapterContextNullException("outputContext");
+        if (parseContextMem == null) throw new GvoxAdapterContextNullException("parseContext");
+        if (serializeContextMem == null) throw new GvoxAdapterContextNullException("serializeContext");
+
+        MemorySegment regionRange = fromGvoxRegionRange(range);
+        int targetChannels = fromGvoxChannelBit(channels);
+
+        gvox_h.gvox_blit_region_parse_driven(inputContextMem, outputContextMem, parseContextMem, serializeContextMem, regionRange, targetChannels);
     }
 
     public static void blit_region_serialize_driven(
@@ -278,14 +289,21 @@ public class Gvox {
             GvoxRegionRange range,
             List<GvoxChannelBit> channels
     ){
-        gvox_h.gvox_blit_region_serialize_driven(
-                adapterContexts.get(inputContext),
-                adapterContexts.get(outputContext),
-                adapterContexts.get(parseContext),
-                adapterContexts.get(serializeContext),
-                fromGvoxRegionRange(range),
-                fromGvoxChannelBit(channels));
-    }*/
+        checkInit();
+        MemorySegment inputContextMem = adapterContexts.getOrDefault(inputContext, null);
+        MemorySegment outputContextMem = adapterContexts.getOrDefault(outputContext, null);
+        MemorySegment parseContextMem = adapterContexts.getOrDefault(parseContext, null);
+        MemorySegment serializeContextMem = adapterContexts.getOrDefault(serializeContext, null);
+        if (inputContextMem == null) throw new GvoxAdapterContextNullException("inputContext");
+        if (outputContextMem == null) throw new GvoxAdapterContextNullException("outputContext");
+        if (parseContextMem == null) throw new GvoxAdapterContextNullException("parseContext");
+        if (serializeContextMem == null) throw new GvoxAdapterContextNullException("serializeContext");
+
+        MemorySegment regionRange = fromGvoxRegionRange(range);
+        int targetChannels = fromGvoxChannelBit(channels);
+
+        gvox_h.gvox_blit_region_serialize_driven(inputContextMem, outputContextMem, parseContextMem, serializeContextMem, regionRange, targetChannels);
+    }
 
     private static MemorySegment fromGvoxRegionRange(GvoxRegionRange range) {
         StructLayout layout = MemoryLayout.structLayout(
