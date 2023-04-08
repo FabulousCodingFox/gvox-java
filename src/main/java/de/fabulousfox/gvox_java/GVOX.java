@@ -322,7 +322,7 @@ public class GVOX {
                 configMem = __GvoxNativeRuntimeHelper.arena.allocate(layout);
                 configMem.set(ADDRESS, 0, MemorySegment.ofAddress(MemorySegment.NULL.address()));
                 configMem.set(ADDRESS, 8, MemorySegment.ofAddress(MemorySegment.NULL.address()));
-                //TODO: Implement allocate
+                configMem.set(ADDRESS, 16, MemorySegment.ofAddress(MemorySegment.NULL.address()));
             }
         }
 
