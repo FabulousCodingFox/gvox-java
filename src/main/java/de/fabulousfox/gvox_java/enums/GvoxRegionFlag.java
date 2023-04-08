@@ -1,6 +1,9 @@
 package de.fabulousfox.gvox_java.enums;
 
 public enum GvoxRegionFlag {
+    /**
+     * The region is uniform, meaning that all voxels have the same color.
+     */
     UNIFORM(0x00000001);
 
     private final int value;
