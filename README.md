@@ -10,14 +10,7 @@ This project is not finished. The adapter api is not implemented yet, as well as
 
 ## Installation (Maven)
 1. [Authenticate GitHub Packages](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry#authenticating-to-github-packages)
-2. Add the package dependencies to the dependencies element of your project pom.xml file
-```xml
-<dependency>
-  <groupId>de.fabulousfox</groupId>
-  <artifactId>gvox-java</artifactId>
-  <version>1.2.5</version>
-</dependency>
-```
+2. [Add this to your pom.xml](https://github.com/FabulousCodingFox/gvox-java/packages/1833313)
 
 ## Usage
 Check the [gvox wiki](https://github.com/GabeRundlett/gvox/wiki) for more detailed instructions. Here i only provide the java equivalent of the demo snippet
