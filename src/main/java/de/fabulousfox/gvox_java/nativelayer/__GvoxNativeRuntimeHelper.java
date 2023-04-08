@@ -22,11 +22,6 @@ public class __GvoxNativeRuntimeHelper {
             (size, align) -> MemorySegment.allocateNative(size, align, arena.scope());
 
     static {
-        //System.loadLibrary(",");
-        //System.load();
-
-        System.load("C:\\Users\\fabif\\CLionProjects\\gvox-master\\cmake-build-debug\\gvox.dll"); //TODO: Change this to your path
-        //System.load("C:\\Users\\fabif\\CLionProjects\\gvox-master\\.out\\clang-x86_64-windows-msvc\\Debug\\libgvox.a");
         SymbolLookup loaderLookup = SymbolLookup.loaderLookup();
         SYMBOL_LOOKUP = name -> loaderLookup.find(name).or(() -> LINKER.defaultLookup().find(name));
     }
