@@ -2,13 +2,13 @@ package de.fabulousfox.gvox_java.nativelayer;
 
 /**
  * {@snippet :
- * typedef struct _GvoxBlitContext GvoxBlitContext;
+ * typedef struct _GvoxAdapterContext GvoxAdapterContext;
  *}
  */
-public final class GvoxBlitContext {
+public final class __GvoxAdapterContext {
 
     // Suppresses default constructor, ensuring non-instantiability.
-    private GvoxBlitContext() {
+    private __GvoxAdapterContext() {
     }
 }
 

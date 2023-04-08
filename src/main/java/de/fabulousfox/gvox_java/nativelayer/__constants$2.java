@@ -9,49 +9,49 @@ final class __constants$2 {
     private __constants$2() {
     }
 
-    static final FunctionDescriptor gvox_register_output_adapter$FUNC = FunctionDescriptor.of(Constants$root.C_POINTER$LAYOUT,
-            Constants$root.C_POINTER$LAYOUT,
-            Constants$root.C_POINTER$LAYOUT
+    static final FunctionDescriptor gvox_register_output_adapter$FUNC = FunctionDescriptor.of(__Constants$root.C_POINTER$LAYOUT,
+            __Constants$root.C_POINTER$LAYOUT,
+            __Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle gvox_register_output_adapter$MH = __GvoxNativeRuntimeHelper.downcallHandle(
             "gvox_register_output_adapter",
             __constants$2.gvox_register_output_adapter$FUNC
     );
-    static final FunctionDescriptor gvox_get_output_adapter$FUNC = FunctionDescriptor.of(Constants$root.C_POINTER$LAYOUT,
-            Constants$root.C_POINTER$LAYOUT,
-            Constants$root.C_POINTER$LAYOUT
+    static final FunctionDescriptor gvox_get_output_adapter$FUNC = FunctionDescriptor.of(__Constants$root.C_POINTER$LAYOUT,
+            __Constants$root.C_POINTER$LAYOUT,
+            __Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle gvox_get_output_adapter$MH = __GvoxNativeRuntimeHelper.downcallHandle(
             "gvox_get_output_adapter",
             __constants$2.gvox_get_output_adapter$FUNC
     );
-    static final FunctionDescriptor gvox_register_parse_adapter$FUNC = FunctionDescriptor.of(Constants$root.C_POINTER$LAYOUT,
-            Constants$root.C_POINTER$LAYOUT,
-            Constants$root.C_POINTER$LAYOUT
+    static final FunctionDescriptor gvox_register_parse_adapter$FUNC = FunctionDescriptor.of(__Constants$root.C_POINTER$LAYOUT,
+            __Constants$root.C_POINTER$LAYOUT,
+            __Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle gvox_register_parse_adapter$MH = __GvoxNativeRuntimeHelper.downcallHandle(
             "gvox_register_parse_adapter",
             __constants$2.gvox_register_parse_adapter$FUNC
     );
-    static final FunctionDescriptor gvox_get_parse_adapter$FUNC = FunctionDescriptor.of(Constants$root.C_POINTER$LAYOUT,
-            Constants$root.C_POINTER$LAYOUT,
-            Constants$root.C_POINTER$LAYOUT
+    static final FunctionDescriptor gvox_get_parse_adapter$FUNC = FunctionDescriptor.of(__Constants$root.C_POINTER$LAYOUT,
+            __Constants$root.C_POINTER$LAYOUT,
+            __Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle gvox_get_parse_adapter$MH = __GvoxNativeRuntimeHelper.downcallHandle(
             "gvox_get_parse_adapter",
             __constants$2.gvox_get_parse_adapter$FUNC
     );
-    static final FunctionDescriptor gvox_register_serialize_adapter$FUNC = FunctionDescriptor.of(Constants$root.C_POINTER$LAYOUT,
-            Constants$root.C_POINTER$LAYOUT,
-            Constants$root.C_POINTER$LAYOUT
+    static final FunctionDescriptor gvox_register_serialize_adapter$FUNC = FunctionDescriptor.of(__Constants$root.C_POINTER$LAYOUT,
+            __Constants$root.C_POINTER$LAYOUT,
+            __Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle gvox_register_serialize_adapter$MH = __GvoxNativeRuntimeHelper.downcallHandle(
             "gvox_register_serialize_adapter",
             __constants$2.gvox_register_serialize_adapter$FUNC
     );
-    static final FunctionDescriptor gvox_get_serialize_adapter$FUNC = FunctionDescriptor.of(Constants$root.C_POINTER$LAYOUT,
-            Constants$root.C_POINTER$LAYOUT,
-            Constants$root.C_POINTER$LAYOUT
+    static final FunctionDescriptor gvox_get_serialize_adapter$FUNC = FunctionDescriptor.of(__Constants$root.C_POINTER$LAYOUT,
+            __Constants$root.C_POINTER$LAYOUT,
+            __Constants$root.C_POINTER$LAYOUT
     );
     static final MethodHandle gvox_get_serialize_adapter$MH = __GvoxNativeRuntimeHelper.downcallHandle(
             "gvox_get_serialize_adapter",

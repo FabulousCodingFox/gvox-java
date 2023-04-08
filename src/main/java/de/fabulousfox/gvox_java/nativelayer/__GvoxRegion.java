@@ -6,35 +6,35 @@ import java.lang.invoke.VarHandle;
 /**
  * {@snippet :
  * struct {
- *     GvoxRegionRange range;
+ *     __GvoxRegionRange range;
  *     uint32_t channels;
  *     uint32_t flags;
  *     void* data;
  * };
  *}
  */
-public class GvoxRegion {
+public class __GvoxRegion {
 
     static final StructLayout $struct$LAYOUT = MemoryLayout.structLayout(
             MemoryLayout.structLayout(
                     MemoryLayout.structLayout(
-                            Constants$root.C_LONG$LAYOUT.withName("x"),
-                            Constants$root.C_LONG$LAYOUT.withName("y"),
-                            Constants$root.C_LONG$LAYOUT.withName("z")
+                            __Constants$root.C_LONG$LAYOUT.withName("x"),
+                            __Constants$root.C_LONG$LAYOUT.withName("y"),
+                            __Constants$root.C_LONG$LAYOUT.withName("z")
                     ).withName("offset"),
                     MemoryLayout.structLayout(
-                            Constants$root.C_LONG$LAYOUT.withName("x"),
-                            Constants$root.C_LONG$LAYOUT.withName("y"),
-                            Constants$root.C_LONG$LAYOUT.withName("z")
+                            __Constants$root.C_LONG$LAYOUT.withName("x"),
+                            __Constants$root.C_LONG$LAYOUT.withName("y"),
+                            __Constants$root.C_LONG$LAYOUT.withName("z")
                     ).withName("extent")
             ).withName("range"),
-            Constants$root.C_LONG$LAYOUT.withName("channels"),
-            Constants$root.C_LONG$LAYOUT.withName("flags"),
-            Constants$root.C_POINTER$LAYOUT.withName("data")
+            __Constants$root.C_LONG$LAYOUT.withName("channels"),
+            __Constants$root.C_LONG$LAYOUT.withName("flags"),
+            __Constants$root.C_POINTER$LAYOUT.withName("data")
     );
 
     public static MemoryLayout $LAYOUT() {
-        return GvoxRegion.$struct$LAYOUT;
+        return __GvoxRegion.$struct$LAYOUT;
     }
 
     public static MemorySegment range$slice(MemorySegment seg) {
@@ -44,7 +44,7 @@ public class GvoxRegion {
     static final VarHandle channels$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("channels"));
 
     public static VarHandle channels$VH() {
-        return GvoxRegion.channels$VH;
+        return __GvoxRegion.channels$VH;
     }
 
     /**
@@ -54,7 +54,7 @@ public class GvoxRegion {
      *}
      */
     public static int channels$get(MemorySegment seg) {
-        return (int) GvoxRegion.channels$VH.get(seg);
+        return (int) __GvoxRegion.channels$VH.get(seg);
     }
 
     /**
@@ -64,21 +64,21 @@ public class GvoxRegion {
      *}
      */
     public static void channels$set(MemorySegment seg, int x) {
-        GvoxRegion.channels$VH.set(seg, x);
+        __GvoxRegion.channels$VH.set(seg, x);
     }
 
     public static int channels$get(MemorySegment seg, long index) {
-        return (int) GvoxRegion.channels$VH.get(seg.asSlice(index * sizeof()));
+        return (int) __GvoxRegion.channels$VH.get(seg.asSlice(index * sizeof()));
     }
 
     public static void channels$set(MemorySegment seg, long index, int x) {
-        GvoxRegion.channels$VH.set(seg.asSlice(index * sizeof()), x);
+        __GvoxRegion.channels$VH.set(seg.asSlice(index * sizeof()), x);
     }
 
     static final VarHandle flags$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("flags"));
 
     public static VarHandle flags$VH() {
-        return GvoxRegion.flags$VH;
+        return __GvoxRegion.flags$VH;
     }
 
     /**
@@ -88,7 +88,7 @@ public class GvoxRegion {
      *}
      */
     public static int flags$get(MemorySegment seg) {
-        return (int) GvoxRegion.flags$VH.get(seg);
+        return (int) __GvoxRegion.flags$VH.get(seg);
     }
 
     /**
@@ -98,21 +98,21 @@ public class GvoxRegion {
      *}
      */
     public static void flags$set(MemorySegment seg, int x) {
-        GvoxRegion.flags$VH.set(seg, x);
+        __GvoxRegion.flags$VH.set(seg, x);
     }
 
     public static int flags$get(MemorySegment seg, long index) {
-        return (int) GvoxRegion.flags$VH.get(seg.asSlice(index * sizeof()));
+        return (int) __GvoxRegion.flags$VH.get(seg.asSlice(index * sizeof()));
     }
 
     public static void flags$set(MemorySegment seg, long index, int x) {
-        GvoxRegion.flags$VH.set(seg.asSlice(index * sizeof()), x);
+        __GvoxRegion.flags$VH.set(seg.asSlice(index * sizeof()), x);
     }
 
     static final VarHandle data$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("data"));
 
     public static VarHandle data$VH() {
-        return GvoxRegion.data$VH;
+        return __GvoxRegion.data$VH;
     }
 
     /**
@@ -122,7 +122,7 @@ public class GvoxRegion {
      *}
      */
     public static MemorySegment data$get(MemorySegment seg) {
-        return (java.lang.foreign.MemorySegment) GvoxRegion.data$VH.get(seg);
+        return (java.lang.foreign.MemorySegment) __GvoxRegion.data$VH.get(seg);
     }
 
     /**
@@ -132,15 +132,15 @@ public class GvoxRegion {
      *}
      */
     public static void data$set(MemorySegment seg, MemorySegment x) {
-        GvoxRegion.data$VH.set(seg, x);
+        __GvoxRegion.data$VH.set(seg, x);
     }
 
     public static MemorySegment data$get(MemorySegment seg, long index) {
-        return (java.lang.foreign.MemorySegment) GvoxRegion.data$VH.get(seg.asSlice(index * sizeof()));
+        return (java.lang.foreign.MemorySegment) __GvoxRegion.data$VH.get(seg.asSlice(index * sizeof()));
     }
 
     public static void data$set(MemorySegment seg, long index, MemorySegment x) {
-        GvoxRegion.data$VH.set(seg.asSlice(index * sizeof()), x);
+        __GvoxRegion.data$VH.set(seg.asSlice(index * sizeof()), x);
     }
 
     public static long sizeof() {

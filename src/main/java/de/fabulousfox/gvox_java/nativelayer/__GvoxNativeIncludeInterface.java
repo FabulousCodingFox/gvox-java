@@ -11,14 +11,14 @@ import static java.lang.foreign.ValueLayout.*;
 
 public class __GvoxNativeIncludeInterface {
 
-    public static final OfByte C_CHAR = Constants$root.C_CHAR$LAYOUT;
-    public static final OfShort C_SHORT = Constants$root.C_SHORT$LAYOUT;
-    public static final OfInt C_INT = Constants$root.C_LONG$LAYOUT;
-    public static final OfInt C_LONG = Constants$root.C_LONG$LAYOUT;
-    public static final OfLong C_LONG_LONG = Constants$root.C_LONG_LONG$LAYOUT;
-    public static final OfFloat C_FLOAT = Constants$root.C_FLOAT$LAYOUT;
-    public static final OfDouble C_DOUBLE = Constants$root.C_DOUBLE$LAYOUT;
-    public static final OfAddress C_POINTER = Constants$root.C_POINTER$LAYOUT;
+    public static final OfByte C_CHAR = __Constants$root.C_CHAR$LAYOUT;
+    public static final OfShort C_SHORT = __Constants$root.C_SHORT$LAYOUT;
+    public static final OfInt C_INT = __Constants$root.C_LONG$LAYOUT;
+    public static final OfInt C_LONG = __Constants$root.C_LONG$LAYOUT;
+    public static final OfLong C_LONG_LONG = __Constants$root.C_LONG_LONG$LAYOUT;
+    public static final OfFloat C_FLOAT = __Constants$root.C_FLOAT$LAYOUT;
+    public static final OfDouble C_DOUBLE = __Constants$root.C_DOUBLE$LAYOUT;
+    public static final OfAddress C_POINTER = __Constants$root.C_POINTER$LAYOUT;
 
     /**
      * {@snippet :
@@ -286,37 +286,37 @@ public class __GvoxNativeIncludeInterface {
      * typedef long long ptrdiff_t;
      *}
      */
-    public static final OfLong ptrdiff_t = Constants$root.C_LONG_LONG$LAYOUT;
+    public static final OfLong ptrdiff_t = __Constants$root.C_LONG_LONG$LAYOUT;
     /**
      * {@snippet :
      * typedef unsigned long long size_t;
      *}
      */
-    public static final OfLong size_t = Constants$root.C_LONG_LONG$LAYOUT;
+    public static final OfLong size_t = __Constants$root.C_LONG_LONG$LAYOUT;
     /**
      * {@snippet :
      * typedef unsigned short wchar_t;
      *}
      */
-    public static final OfShort wchar_t = Constants$root.C_SHORT$LAYOUT;
+    public static final OfShort wchar_t = __Constants$root.C_SHORT$LAYOUT;
     /**
      * {@snippet :
      * typedef double max_align_t;
      *}
      */
-    public static final OfDouble max_align_t = Constants$root.C_DOUBLE$LAYOUT;
+    public static final OfDouble max_align_t = __Constants$root.C_DOUBLE$LAYOUT;
     /**
      * {@snippet :
      * typedef unsigned long long uintptr_t;
      *}
      */
-    public static final OfLong uintptr_t = Constants$root.C_LONG_LONG$LAYOUT;
+    public static final OfLong uintptr_t = __Constants$root.C_LONG_LONG$LAYOUT;
     /**
      * {@snippet :
      * typedef char* va_list;
      *}
      */
-    public static final OfAddress va_list = Constants$root.C_POINTER$LAYOUT;
+    public static final OfAddress va_list = __Constants$root.C_POINTER$LAYOUT;
 
     public static MethodHandle __va_start$MH() {
         return __GvoxNativeRuntimeHelper.requireNonNull(__constants$0.__va_start$MH, "__va_start");
@@ -341,7 +341,7 @@ public class __GvoxNativeIncludeInterface {
      * typedef long long intptr_t;
      *}
      */
-    public static final OfLong intptr_t = Constants$root.C_LONG_LONG$LAYOUT;
+    public static final OfLong intptr_t = __Constants$root.C_LONG_LONG$LAYOUT;
 
     public static MethodHandle __security_init_cookie$MH() {
         return __GvoxNativeRuntimeHelper.requireNonNull(__constants$0.__security_init_cookie$MH, "__security_init_cookie");
@@ -434,157 +434,157 @@ public class __GvoxNativeIncludeInterface {
      * typedef signed char int8_t;
      *}
      */
-    public static final OfByte int8_t = Constants$root.C_CHAR$LAYOUT;
+    public static final OfByte int8_t = __Constants$root.C_CHAR$LAYOUT;
     /**
      * {@snippet :
      * typedef short int16_t;
      *}
      */
-    public static final OfShort int16_t = Constants$root.C_SHORT$LAYOUT;
+    public static final OfShort int16_t = __Constants$root.C_SHORT$LAYOUT;
     /**
      * {@snippet :
      * typedef int int32_t;
      *}
      */
-    public static final OfInt int32_t = Constants$root.C_LONG$LAYOUT;
+    public static final OfInt int32_t = __Constants$root.C_LONG$LAYOUT;
     /**
      * {@snippet :
      * typedef long long int64_t;
      *}
      */
-    public static final OfLong int64_t = Constants$root.C_LONG_LONG$LAYOUT;
+    public static final OfLong int64_t = __Constants$root.C_LONG_LONG$LAYOUT;
     /**
      * {@snippet :
      * typedef unsigned char uint8_t;
      *}
      */
-    public static final OfByte uint8_t = Constants$root.C_CHAR$LAYOUT;
+    public static final OfByte uint8_t = __Constants$root.C_CHAR$LAYOUT;
     /**
      * {@snippet :
      * typedef unsigned short uint16_t;
      *}
      */
-    public static final OfShort uint16_t = Constants$root.C_SHORT$LAYOUT;
+    public static final OfShort uint16_t = __Constants$root.C_SHORT$LAYOUT;
     /**
      * {@snippet :
      * typedef unsigned int uint32_t;
      *}
      */
-    public static final OfInt uint32_t = Constants$root.C_LONG$LAYOUT;
+    public static final OfInt uint32_t = __Constants$root.C_LONG$LAYOUT;
     /**
      * {@snippet :
      * typedef unsigned long long uint64_t;
      *}
      */
-    public static final OfLong uint64_t = Constants$root.C_LONG_LONG$LAYOUT;
+    public static final OfLong uint64_t = __Constants$root.C_LONG_LONG$LAYOUT;
     /**
      * {@snippet :
      * typedef signed char int_least8_t;
      *}
      */
-    public static final OfByte int_least8_t = Constants$root.C_CHAR$LAYOUT;
+    public static final OfByte int_least8_t = __Constants$root.C_CHAR$LAYOUT;
     /**
      * {@snippet :
      * typedef short int_least16_t;
      *}
      */
-    public static final OfShort int_least16_t = Constants$root.C_SHORT$LAYOUT;
+    public static final OfShort int_least16_t = __Constants$root.C_SHORT$LAYOUT;
     /**
      * {@snippet :
      * typedef int int_least32_t;
      *}
      */
-    public static final OfInt int_least32_t = Constants$root.C_LONG$LAYOUT;
+    public static final OfInt int_least32_t = __Constants$root.C_LONG$LAYOUT;
     /**
      * {@snippet :
      * typedef long long int_least64_t;
      *}
      */
-    public static final OfLong int_least64_t = Constants$root.C_LONG_LONG$LAYOUT;
+    public static final OfLong int_least64_t = __Constants$root.C_LONG_LONG$LAYOUT;
     /**
      * {@snippet :
      * typedef unsigned char uint_least8_t;
      *}
      */
-    public static final OfByte uint_least8_t = Constants$root.C_CHAR$LAYOUT;
+    public static final OfByte uint_least8_t = __Constants$root.C_CHAR$LAYOUT;
     /**
      * {@snippet :
      * typedef unsigned short uint_least16_t;
      *}
      */
-    public static final OfShort uint_least16_t = Constants$root.C_SHORT$LAYOUT;
+    public static final OfShort uint_least16_t = __Constants$root.C_SHORT$LAYOUT;
     /**
      * {@snippet :
      * typedef unsigned int uint_least32_t;
      *}
      */
-    public static final OfInt uint_least32_t = Constants$root.C_LONG$LAYOUT;
+    public static final OfInt uint_least32_t = __Constants$root.C_LONG$LAYOUT;
     /**
      * {@snippet :
      * typedef unsigned long long uint_least64_t;
      *}
      */
-    public static final OfLong uint_least64_t = Constants$root.C_LONG_LONG$LAYOUT;
+    public static final OfLong uint_least64_t = __Constants$root.C_LONG_LONG$LAYOUT;
     /**
      * {@snippet :
      * typedef signed char int_fast8_t;
      *}
      */
-    public static final OfByte int_fast8_t = Constants$root.C_CHAR$LAYOUT;
+    public static final OfByte int_fast8_t = __Constants$root.C_CHAR$LAYOUT;
     /**
      * {@snippet :
      * typedef int int_fast16_t;
      *}
      */
-    public static final OfInt int_fast16_t = Constants$root.C_LONG$LAYOUT;
+    public static final OfInt int_fast16_t = __Constants$root.C_LONG$LAYOUT;
     /**
      * {@snippet :
      * typedef int int_fast32_t;
      *}
      */
-    public static final OfInt int_fast32_t = Constants$root.C_LONG$LAYOUT;
+    public static final OfInt int_fast32_t = __Constants$root.C_LONG$LAYOUT;
     /**
      * {@snippet :
      * typedef long long int_fast64_t;
      *}
      */
-    public static final OfLong int_fast64_t = Constants$root.C_LONG_LONG$LAYOUT;
+    public static final OfLong int_fast64_t = __Constants$root.C_LONG_LONG$LAYOUT;
     /**
      * {@snippet :
      * typedef unsigned char uint_fast8_t;
      *}
      */
-    public static final OfByte uint_fast8_t = Constants$root.C_CHAR$LAYOUT;
+    public static final OfByte uint_fast8_t = __Constants$root.C_CHAR$LAYOUT;
     /**
      * {@snippet :
      * typedef unsigned int uint_fast16_t;
      *}
      */
-    public static final OfInt uint_fast16_t = Constants$root.C_LONG$LAYOUT;
+    public static final OfInt uint_fast16_t = __Constants$root.C_LONG$LAYOUT;
     /**
      * {@snippet :
      * typedef unsigned int uint_fast32_t;
      *}
      */
-    public static final OfInt uint_fast32_t = Constants$root.C_LONG$LAYOUT;
+    public static final OfInt uint_fast32_t = __Constants$root.C_LONG$LAYOUT;
     /**
      * {@snippet :
      * typedef unsigned long long uint_fast64_t;
      *}
      */
-    public static final OfLong uint_fast64_t = Constants$root.C_LONG_LONG$LAYOUT;
+    public static final OfLong uint_fast64_t = __Constants$root.C_LONG_LONG$LAYOUT;
     /**
      * {@snippet :
      * typedef long long intmax_t;
      *}
      */
-    public static final OfLong intmax_t = Constants$root.C_LONG_LONG$LAYOUT;
+    public static final OfLong intmax_t = __Constants$root.C_LONG_LONG$LAYOUT;
     /**
      * {@snippet :
      * typedef unsigned long long uintmax_t;
      *}
      */
-    public static final OfLong uintmax_t = Constants$root.C_LONG_LONG$LAYOUT;
+    public static final OfLong uintmax_t = __Constants$root.C_LONG_LONG$LAYOUT;
 
     /**
      * {@snippet :
@@ -709,7 +709,7 @@ public class __GvoxNativeIncludeInterface {
 
     /**
      * {@snippet :
-     * GvoxContext* gvox_create_context();
+     * __GvoxContext* gvox_create_context();
      *}
      */
     public static MemorySegment gvox_create_context() {
@@ -727,7 +727,7 @@ public class __GvoxNativeIncludeInterface {
 
     /**
      * {@snippet :
-     * void gvox_destroy_context(GvoxContext* ctx);
+     * void gvox_destroy_context(__GvoxContext* ctx);
      *}
      */
     public static void gvox_destroy_context(MemorySegment ctx) {
@@ -745,7 +745,7 @@ public class __GvoxNativeIncludeInterface {
 
     /**
      * {@snippet :
-     * GvoxResult gvox_get_result(GvoxContext* ctx);
+     * GvoxResult gvox_get_result(__GvoxContext* ctx);
      *}
      */
     public static int gvox_get_result(MemorySegment ctx) {
@@ -763,7 +763,7 @@ public class __GvoxNativeIncludeInterface {
 
     /**
      * {@snippet :
-     * void gvox_get_result_message(GvoxContext* ctx, char* str_buffer, size_t* str_size);
+     * void gvox_get_result_message(__GvoxContext* ctx, char* str_buffer, size_t* str_size);
      *}
      */
     public static void gvox_get_result_message(MemorySegment ctx, MemorySegment str_buffer, MemorySegment str_size) {
@@ -781,7 +781,7 @@ public class __GvoxNativeIncludeInterface {
 
     /**
      * {@snippet :
-     * void gvox_pop_result(GvoxContext* ctx);
+     * void gvox_pop_result(__GvoxContext* ctx);
      *}
      */
     public static void gvox_pop_result(MemorySegment ctx) {
@@ -799,7 +799,7 @@ public class __GvoxNativeIncludeInterface {
 
     /**
      * {@snippet :
-     * GvoxAdapter* gvox_register_input_adapter(GvoxContext* ctx, const GvoxInputAdapterInfo* adapter_info);
+     * __GvoxAdapter* gvox_register_input_adapter(__GvoxContext* ctx, const GvoxInputAdapterInfo* adapter_info);
      *}
      */
     public static MemorySegment gvox_register_input_adapter(MemorySegment ctx, MemorySegment adapter_info) {
@@ -817,7 +817,7 @@ public class __GvoxNativeIncludeInterface {
 
     /**
      * {@snippet :
-     * GvoxAdapter* gvox_get_input_adapter(GvoxContext* ctx, char* adapter_name);
+     * __GvoxAdapter* gvox_get_input_adapter(__GvoxContext* ctx, char* adapter_name);
      *}
      */
     public static MemorySegment gvox_get_input_adapter(MemorySegment ctx, MemorySegment adapter_name) {
@@ -835,7 +835,7 @@ public class __GvoxNativeIncludeInterface {
 
     /**
      * {@snippet :
-     * GvoxAdapter* gvox_register_output_adapter(GvoxContext* ctx, const GvoxOutputAdapterInfo* adapter_info);
+     * __GvoxAdapter* gvox_register_output_adapter(__GvoxContext* ctx, const GvoxOutputAdapterInfo* adapter_info);
      *}
      */
     public static MemorySegment gvox_register_output_adapter(MemorySegment ctx, MemorySegment adapter_info) {
@@ -853,7 +853,7 @@ public class __GvoxNativeIncludeInterface {
 
     /**
      * {@snippet :
-     * GvoxAdapter* gvox_get_output_adapter(GvoxContext* ctx, char* adapter_name);
+     * __GvoxAdapter* gvox_get_output_adapter(__GvoxContext* ctx, char* adapter_name);
      *}
      */
     public static MemorySegment gvox_get_output_adapter(MemorySegment ctx, MemorySegment adapter_name) {
@@ -871,7 +871,7 @@ public class __GvoxNativeIncludeInterface {
 
     /**
      * {@snippet :
-     * GvoxAdapter* gvox_register_parse_adapter(GvoxContext* ctx, const GvoxParseAdapterInfo* adapter_info);
+     * __GvoxAdapter* gvox_register_parse_adapter(__GvoxContext* ctx, const GvoxParseAdapterInfo* adapter_info);
      *}
      */
     public static MemorySegment gvox_register_parse_adapter(MemorySegment ctx, MemorySegment adapter_info) {
@@ -889,7 +889,7 @@ public class __GvoxNativeIncludeInterface {
 
     /**
      * {@snippet :
-     * GvoxAdapter* gvox_get_parse_adapter(GvoxContext* ctx, char* adapter_name);
+     * __GvoxAdapter* gvox_get_parse_adapter(__GvoxContext* ctx, char* adapter_name);
      *}
      */
     public static MemorySegment gvox_get_parse_adapter(MemorySegment ctx, MemorySegment adapter_name) {
@@ -907,7 +907,7 @@ public class __GvoxNativeIncludeInterface {
 
     /**
      * {@snippet :
-     * GvoxAdapter* gvox_register_serialize_adapter(GvoxContext* ctx, const GvoxSerializeAdapterInfo* adapter_info);
+     * __GvoxAdapter* gvox_register_serialize_adapter(__GvoxContext* ctx, const GvoxSerializeAdapterInfo* adapter_info);
      *}
      */
     public static MemorySegment gvox_register_serialize_adapter(MemorySegment ctx, MemorySegment adapter_info) {
@@ -925,7 +925,7 @@ public class __GvoxNativeIncludeInterface {
 
     /**
      * {@snippet :
-     * GvoxAdapter* gvox_get_serialize_adapter(GvoxContext* ctx, char* adapter_name);
+     * __GvoxAdapter* gvox_get_serialize_adapter(__GvoxContext* ctx, char* adapter_name);
      *}
      */
     public static MemorySegment gvox_get_serialize_adapter(MemorySegment ctx, MemorySegment adapter_name) {
@@ -943,7 +943,7 @@ public class __GvoxNativeIncludeInterface {
 
     /**
      * {@snippet :
-     * GvoxAdapterContext* gvox_create_adapter_context(GvoxContext* gvox_ctx, GvoxAdapter* adapter, void* config);
+     * __GvoxAdapterContext* gvox_create_adapter_context(__GvoxContext* gvox_ctx, __GvoxAdapter* adapter, void* config);
      *}
      */
     public static MemorySegment gvox_create_adapter_context(MemorySegment gvox_ctx, MemorySegment adapter, MemorySegment config) {
@@ -961,7 +961,7 @@ public class __GvoxNativeIncludeInterface {
 
     /**
      * {@snippet :
-     * void gvox_destroy_adapter_context(GvoxAdapterContext* ctx);
+     * void gvox_destroy_adapter_context(__GvoxAdapterContext* ctx);
      *}
      */
     public static void gvox_destroy_adapter_context(MemorySegment ctx) {
@@ -979,7 +979,7 @@ public class __GvoxNativeIncludeInterface {
 
     /**
      * {@snippet :
-     * void gvox_blit_region(GvoxAdapterContext* input_ctx, GvoxAdapterContext* output_ctx, GvoxAdapterContext* parse_ctx, GvoxAdapterContext* serialize_ctx, const GvoxRegionRange* requested_range, uint32_t channel_flags);
+     * void gvox_blit_region(__GvoxAdapterContext* input_ctx, __GvoxAdapterContext* output_ctx, __GvoxAdapterContext* parse_ctx, __GvoxAdapterContext* serialize_ctx, const __GvoxRegionRange* requested_range, uint32_t channel_flags);
      *}
      */
     public static void gvox_blit_region(MemorySegment input_ctx, MemorySegment output_ctx, MemorySegment parse_ctx, MemorySegment serialize_ctx, MemorySegment requested_range, int channel_flags) {
@@ -997,7 +997,7 @@ public class __GvoxNativeIncludeInterface {
 
     /**
      * {@snippet :
-     * void gvox_blit_region_parse_driven(GvoxAdapterContext* input_ctx, GvoxAdapterContext* output_ctx, GvoxAdapterContext* parse_ctx, GvoxAdapterContext* serialize_ctx, const GvoxRegionRange* requested_range, uint32_t channel_flags);
+     * void gvox_blit_region_parse_driven(__GvoxAdapterContext* input_ctx, __GvoxAdapterContext* output_ctx, __GvoxAdapterContext* parse_ctx, __GvoxAdapterContext* serialize_ctx, const __GvoxRegionRange* requested_range, uint32_t channel_flags);
      *}
      */
     public static void gvox_blit_region_parse_driven(MemorySegment input_ctx, MemorySegment output_ctx, MemorySegment parse_ctx, MemorySegment serialize_ctx, MemorySegment requested_range, int channel_flags) {
@@ -1015,7 +1015,7 @@ public class __GvoxNativeIncludeInterface {
 
     /**
      * {@snippet :
-     * void gvox_blit_region_serialize_driven(GvoxAdapterContext* input_ctx, GvoxAdapterContext* output_ctx, GvoxAdapterContext* parse_ctx, GvoxAdapterContext* serialize_ctx, const GvoxRegionRange* requested_range, uint32_t channel_flags);
+     * void gvox_blit_region_serialize_driven(__GvoxAdapterContext* input_ctx, __GvoxAdapterContext* output_ctx, __GvoxAdapterContext* parse_ctx, __GvoxAdapterContext* serialize_ctx, const __GvoxRegionRange* requested_range, uint32_t channel_flags);
      *}
      */
     public static void gvox_blit_region_serialize_driven(MemorySegment input_ctx, MemorySegment output_ctx, MemorySegment parse_ctx, MemorySegment serialize_ctx, MemorySegment requested_range, int channel_flags) {
@@ -1033,7 +1033,7 @@ public class __GvoxNativeIncludeInterface {
 
     /**
      * {@snippet :
-     * uint32_t gvox_query_region_flags(GvoxBlitContext* blit_ctx, const GvoxRegionRange* range, uint32_t channel_flags);
+     * uint32_t gvox_query_region_flags(__GvoxBlitContext* blit_ctx, const __GvoxRegionRange* range, uint32_t channel_flags);
      *}
      */
     public static int gvox_query_region_flags(MemorySegment blit_ctx, MemorySegment range, int channel_flags) {
@@ -1046,12 +1046,12 @@ public class __GvoxNativeIncludeInterface {
     }
 
     public static MethodHandle gvox_load_region_range$MH() {
-        return __GvoxNativeRuntimeHelper.requireNonNull(constants$4.gvox_load_region_range$MH, "gvox_load_region_range");
+        return __GvoxNativeRuntimeHelper.requireNonNull(__constants$4.gvox_load_region_range$MH, "gvox_load_region_range");
     }
 
     /**
      * {@snippet :
-     * GvoxRegion gvox_load_region_range(GvoxBlitContext* blit_ctx, const GvoxRegionRange* range, uint32_t channel_flags);
+     * __GvoxRegion gvox_load_region_range(__GvoxBlitContext* blit_ctx, const __GvoxRegionRange* range, uint32_t channel_flags);
      *}
      */
     public static MemorySegment gvox_load_region_range(SegmentAllocator allocator, MemorySegment blit_ctx, MemorySegment range, int channel_flags) {
@@ -1064,12 +1064,12 @@ public class __GvoxNativeIncludeInterface {
     }
 
     public static MethodHandle gvox_unload_region_range$MH() {
-        return __GvoxNativeRuntimeHelper.requireNonNull(constants$4.gvox_unload_region_range$MH, "gvox_unload_region_range");
+        return __GvoxNativeRuntimeHelper.requireNonNull(__constants$4.gvox_unload_region_range$MH, "gvox_unload_region_range");
     }
 
     /**
      * {@snippet :
-     * void gvox_unload_region_range(GvoxBlitContext* blit_ctx, GvoxRegion* region, const GvoxRegionRange* range);
+     * void gvox_unload_region_range(__GvoxBlitContext* blit_ctx, __GvoxRegion* region, const __GvoxRegionRange* range);
      *}
      */
     public static void gvox_unload_region_range(MemorySegment blit_ctx, MemorySegment region, MemorySegment range) {
@@ -1082,12 +1082,12 @@ public class __GvoxNativeIncludeInterface {
     }
 
     public static MethodHandle gvox_sample_region$MH() {
-        return __GvoxNativeRuntimeHelper.requireNonNull(constants$4.gvox_sample_region$MH, "gvox_sample_region");
+        return __GvoxNativeRuntimeHelper.requireNonNull(__constants$4.gvox_sample_region$MH, "gvox_sample_region");
     }
 
     /**
      * {@snippet :
-     * GvoxSample gvox_sample_region(GvoxBlitContext* blit_ctx, const GvoxRegion* region, const GvoxOffset3D* offset, uint32_t channel_id);
+     * __GvoxSample gvox_sample_region(__GvoxBlitContext* blit_ctx, const __GvoxRegion* region, const __GvoxOffset3D* offset, uint32_t channel_id);
      *}
      */
     public static MemorySegment gvox_sample_region(SegmentAllocator allocator, MemorySegment blit_ctx, MemorySegment region, MemorySegment offset, int channel_id) {
@@ -1100,12 +1100,12 @@ public class __GvoxNativeIncludeInterface {
     }
 
     public static MethodHandle gvox_adapter_push_error$MH() {
-        return __GvoxNativeRuntimeHelper.requireNonNull(constants$4.gvox_adapter_push_error$MH, "gvox_adapter_push_error");
+        return __GvoxNativeRuntimeHelper.requireNonNull(__constants$4.gvox_adapter_push_error$MH, "gvox_adapter_push_error");
     }
 
     /**
      * {@snippet :
-     * void gvox_adapter_push_error(GvoxAdapterContext* ctx, GvoxResult result_code, char* message);
+     * void gvox_adapter_push_error(__GvoxAdapterContext* ctx, GvoxResult result_code, char* message);
      *}
      */
     public static void gvox_adapter_push_error(MemorySegment ctx, int result_code, MemorySegment message) {
@@ -1118,12 +1118,12 @@ public class __GvoxNativeIncludeInterface {
     }
 
     public static MethodHandle gvox_adapter_set_user_pointer$MH() {
-        return __GvoxNativeRuntimeHelper.requireNonNull(constants$4.gvox_adapter_set_user_pointer$MH, "gvox_adapter_set_user_pointer");
+        return __GvoxNativeRuntimeHelper.requireNonNull(__constants$4.gvox_adapter_set_user_pointer$MH, "gvox_adapter_set_user_pointer");
     }
 
     /**
      * {@snippet :
-     * void gvox_adapter_set_user_pointer(GvoxAdapterContext* ctx, void* ptr);
+     * void gvox_adapter_set_user_pointer(__GvoxAdapterContext* ctx, void* ptr);
      *}
      */
     public static void gvox_adapter_set_user_pointer(MemorySegment ctx, MemorySegment ptr) {
@@ -1136,7 +1136,7 @@ public class __GvoxNativeIncludeInterface {
     }
 
     public static MethodHandle gvox_adapter_get_user_pointer$MH() {
-        return __GvoxNativeRuntimeHelper.requireNonNull(constants$4.gvox_adapter_get_user_pointer$MH, "gvox_adapter_get_user_pointer");
+        return __GvoxNativeRuntimeHelper.requireNonNull(__constants$4.gvox_adapter_get_user_pointer$MH, "gvox_adapter_get_user_pointer");
     }
 
     /**
@@ -1154,12 +1154,12 @@ public class __GvoxNativeIncludeInterface {
     }
 
     public static MethodHandle gvox_input_read$MH() {
-        return __GvoxNativeRuntimeHelper.requireNonNull(constants$5.gvox_input_read$MH, "gvox_input_read");
+        return __GvoxNativeRuntimeHelper.requireNonNull(__constants$5.gvox_input_read$MH, "gvox_input_read");
     }
 
     /**
      * {@snippet :
-     * void gvox_input_read(GvoxBlitContext* blit_ctx, size_t position, size_t size, void* data);
+     * void gvox_input_read(__GvoxBlitContext* blit_ctx, size_t position, size_t size, void* data);
      *}
      */
     public static void gvox_input_read(MemorySegment blit_ctx, long position, long size, MemorySegment data) {
@@ -1172,12 +1172,12 @@ public class __GvoxNativeIncludeInterface {
     }
 
     public static MethodHandle gvox_output_write$MH() {
-        return __GvoxNativeRuntimeHelper.requireNonNull(constants$5.gvox_output_write$MH, "gvox_output_write");
+        return __GvoxNativeRuntimeHelper.requireNonNull(__constants$5.gvox_output_write$MH, "gvox_output_write");
     }
 
     /**
      * {@snippet :
-     * void gvox_output_write(GvoxBlitContext* blit_ctx, size_t position, size_t size, void* data);
+     * void gvox_output_write(__GvoxBlitContext* blit_ctx, size_t position, size_t size, void* data);
      *}
      */
     public static void gvox_output_write(MemorySegment blit_ctx, long position, long size, MemorySegment data) {
@@ -1190,12 +1190,12 @@ public class __GvoxNativeIncludeInterface {
     }
 
     public static MethodHandle gvox_output_reserve$MH() {
-        return __GvoxNativeRuntimeHelper.requireNonNull(constants$5.gvox_output_reserve$MH, "gvox_output_reserve");
+        return __GvoxNativeRuntimeHelper.requireNonNull(__constants$5.gvox_output_reserve$MH, "gvox_output_reserve");
     }
 
     /**
      * {@snippet :
-     * void gvox_output_reserve(GvoxBlitContext* blit_ctx, size_t size);
+     * void gvox_output_reserve(__GvoxBlitContext* blit_ctx, size_t size);
      *}
      */
     public static void gvox_output_reserve(MemorySegment blit_ctx, long size) {
@@ -1208,12 +1208,12 @@ public class __GvoxNativeIncludeInterface {
     }
 
     public static MethodHandle gvox_emit_region$MH() {
-        return __GvoxNativeRuntimeHelper.requireNonNull(constants$5.gvox_emit_region$MH, "gvox_emit_region");
+        return __GvoxNativeRuntimeHelper.requireNonNull(__constants$5.gvox_emit_region$MH, "gvox_emit_region");
     }
 
     /**
      * {@snippet :
-     * void gvox_emit_region(GvoxBlitContext* blit_ctx, const GvoxRegion* region);
+     * void gvox_emit_region(__GvoxBlitContext* blit_ctx, const __GvoxRegion* region);
      *}
      */
     public static void gvox_emit_region(MemorySegment blit_ctx, MemorySegment region) {
@@ -1231,7 +1231,7 @@ public class __GvoxNativeIncludeInterface {
      *}
      */
     public static MemorySegment NULL() {
-        return constants$5.NULL$ADDR;
+        return __constants$5.NULL$ADDR;
     }
 
     /**

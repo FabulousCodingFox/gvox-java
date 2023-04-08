@@ -5,28 +5,28 @@ import java.lang.foreign.*;
 /**
  * {@snippet :
  * struct {
- *     GvoxOffset3D offset;
- *     GvoxExtent3D extent;
+ *     __GvoxOffset3D offset;
+ *     __GvoxExtent3D extent;
  * };
  *}
  */
-public class GvoxRegionRange {
+public class __GvoxRegionRange {
 
     static final StructLayout $struct$LAYOUT = MemoryLayout.structLayout(
             MemoryLayout.structLayout(
-                    Constants$root.C_LONG$LAYOUT.withName("x"),
-                    Constants$root.C_LONG$LAYOUT.withName("y"),
-                    Constants$root.C_LONG$LAYOUT.withName("z")
+                    __Constants$root.C_LONG$LAYOUT.withName("x"),
+                    __Constants$root.C_LONG$LAYOUT.withName("y"),
+                    __Constants$root.C_LONG$LAYOUT.withName("z")
             ).withName("offset"),
             MemoryLayout.structLayout(
-                    Constants$root.C_LONG$LAYOUT.withName("x"),
-                    Constants$root.C_LONG$LAYOUT.withName("y"),
-                    Constants$root.C_LONG$LAYOUT.withName("z")
+                    __Constants$root.C_LONG$LAYOUT.withName("x"),
+                    __Constants$root.C_LONG$LAYOUT.withName("y"),
+                    __Constants$root.C_LONG$LAYOUT.withName("z")
             ).withName("extent")
     );
 
     public static MemoryLayout $LAYOUT() {
-        return GvoxRegionRange.$struct$LAYOUT;
+        return __GvoxRegionRange.$struct$LAYOUT;
     }
 
     public static MemorySegment offset$slice(MemorySegment seg) {

@@ -11,22 +11,22 @@ import java.lang.invoke.VarHandle;
  * };
  *}
  */
-public class GvoxSample {
+public class __GvoxSample {
 
     static final StructLayout $struct$LAYOUT = MemoryLayout.structLayout(
-            Constants$root.C_LONG$LAYOUT.withName("data"),
-            Constants$root.C_CHAR$LAYOUT.withName("is_present"),
+            __Constants$root.C_LONG$LAYOUT.withName("data"),
+            __Constants$root.C_CHAR$LAYOUT.withName("is_present"),
             MemoryLayout.paddingLayout(24)
     );
 
     public static MemoryLayout $LAYOUT() {
-        return GvoxSample.$struct$LAYOUT;
+        return __GvoxSample.$struct$LAYOUT;
     }
 
     static final VarHandle data$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("data"));
 
     public static VarHandle data$VH() {
-        return GvoxSample.data$VH;
+        return __GvoxSample.data$VH;
     }
 
     /**
@@ -36,7 +36,7 @@ public class GvoxSample {
      *}
      */
     public static int data$get(MemorySegment seg) {
-        return (int) GvoxSample.data$VH.get(seg);
+        return (int) __GvoxSample.data$VH.get(seg);
     }
 
     /**
@@ -46,21 +46,21 @@ public class GvoxSample {
      *}
      */
     public static void data$set(MemorySegment seg, int x) {
-        GvoxSample.data$VH.set(seg, x);
+        __GvoxSample.data$VH.set(seg, x);
     }
 
     public static int data$get(MemorySegment seg, long index) {
-        return (int) GvoxSample.data$VH.get(seg.asSlice(index * sizeof()));
+        return (int) __GvoxSample.data$VH.get(seg.asSlice(index * sizeof()));
     }
 
     public static void data$set(MemorySegment seg, long index, int x) {
-        GvoxSample.data$VH.set(seg.asSlice(index * sizeof()), x);
+        __GvoxSample.data$VH.set(seg.asSlice(index * sizeof()), x);
     }
 
     static final VarHandle is_present$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("is_present"));
 
     public static VarHandle is_present$VH() {
-        return GvoxSample.is_present$VH;
+        return __GvoxSample.is_present$VH;
     }
 
     /**
@@ -70,7 +70,7 @@ public class GvoxSample {
      *}
      */
     public static byte is_present$get(MemorySegment seg) {
-        return (byte) GvoxSample.is_present$VH.get(seg);
+        return (byte) __GvoxSample.is_present$VH.get(seg);
     }
 
     /**
@@ -80,15 +80,15 @@ public class GvoxSample {
      *}
      */
     public static void is_present$set(MemorySegment seg, byte x) {
-        GvoxSample.is_present$VH.set(seg, x);
+        __GvoxSample.is_present$VH.set(seg, x);
     }
 
     public static byte is_present$get(MemorySegment seg, long index) {
-        return (byte) GvoxSample.is_present$VH.get(seg.asSlice(index * sizeof()));
+        return (byte) __GvoxSample.is_present$VH.get(seg.asSlice(index * sizeof()));
     }
 
     public static void is_present$set(MemorySegment seg, long index, byte x) {
-        GvoxSample.is_present$VH.set(seg.asSlice(index * sizeof()), x);
+        __GvoxSample.is_present$VH.set(seg.asSlice(index * sizeof()), x);
     }
 
     public static long sizeof() {

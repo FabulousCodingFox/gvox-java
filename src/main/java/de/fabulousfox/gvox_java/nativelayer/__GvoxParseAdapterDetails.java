@@ -10,20 +10,20 @@ import java.lang.invoke.VarHandle;
  * };
  *}
  */
-public class GvoxParseAdapterDetails {
+public class __GvoxParseAdapterDetails {
 
     static final StructLayout $struct$LAYOUT = MemoryLayout.structLayout(
-            Constants$root.C_LONG$LAYOUT.withName("preferred_blit_mode")
+            __Constants$root.C_LONG$LAYOUT.withName("preferred_blit_mode")
     );
 
     public static MemoryLayout $LAYOUT() {
-        return GvoxParseAdapterDetails.$struct$LAYOUT;
+        return __GvoxParseAdapterDetails.$struct$LAYOUT;
     }
 
     static final VarHandle preferred_blit_mode$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("preferred_blit_mode"));
 
     public static VarHandle preferred_blit_mode$VH() {
-        return GvoxParseAdapterDetails.preferred_blit_mode$VH;
+        return __GvoxParseAdapterDetails.preferred_blit_mode$VH;
     }
 
     /**
@@ -33,7 +33,7 @@ public class GvoxParseAdapterDetails {
      *}
      */
     public static int preferred_blit_mode$get(MemorySegment seg) {
-        return (int) GvoxParseAdapterDetails.preferred_blit_mode$VH.get(seg);
+        return (int) __GvoxParseAdapterDetails.preferred_blit_mode$VH.get(seg);
     }
 
     /**
@@ -43,15 +43,15 @@ public class GvoxParseAdapterDetails {
      *}
      */
     public static void preferred_blit_mode$set(MemorySegment seg, int x) {
-        GvoxParseAdapterDetails.preferred_blit_mode$VH.set(seg, x);
+        __GvoxParseAdapterDetails.preferred_blit_mode$VH.set(seg, x);
     }
 
     public static int preferred_blit_mode$get(MemorySegment seg, long index) {
-        return (int) GvoxParseAdapterDetails.preferred_blit_mode$VH.get(seg.asSlice(index * sizeof()));
+        return (int) __GvoxParseAdapterDetails.preferred_blit_mode$VH.get(seg.asSlice(index * sizeof()));
     }
 
     public static void preferred_blit_mode$set(MemorySegment seg, long index, int x) {
-        GvoxParseAdapterDetails.preferred_blit_mode$VH.set(seg.asSlice(index * sizeof()), x);
+        __GvoxParseAdapterDetails.preferred_blit_mode$VH.set(seg.asSlice(index * sizeof()), x);
     }
 
     public static long sizeof() {

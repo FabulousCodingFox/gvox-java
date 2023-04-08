@@ -2,10 +2,10 @@ package de.fabulousfox.gvox_java.nativelayer;
 
 import static java.lang.foreign.ValueLayout.*;
 
-final class Constants$root {
+final class __Constants$root {
 
     // Suppresses default constructor, ensuring non-instantiability.
-    private Constants$root() {
+    private __Constants$root() {
     }
 
     static final OfBoolean C_BOOL$LAYOUT = JAVA_BOOLEAN;

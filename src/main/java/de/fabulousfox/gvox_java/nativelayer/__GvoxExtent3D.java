@@ -12,22 +12,22 @@ import java.lang.invoke.VarHandle;
  * };
  *}
  */
-public class GvoxExtent3D {
+public class __GvoxExtent3D {
 
     static final StructLayout $struct$LAYOUT = MemoryLayout.structLayout(
-            Constants$root.C_LONG$LAYOUT.withName("x"),
-            Constants$root.C_LONG$LAYOUT.withName("y"),
-            Constants$root.C_LONG$LAYOUT.withName("z")
+            __Constants$root.C_LONG$LAYOUT.withName("x"),
+            __Constants$root.C_LONG$LAYOUT.withName("y"),
+            __Constants$root.C_LONG$LAYOUT.withName("z")
     );
 
     public static MemoryLayout $LAYOUT() {
-        return GvoxExtent3D.$struct$LAYOUT;
+        return __GvoxExtent3D.$struct$LAYOUT;
     }
 
     static final VarHandle x$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("x"));
 
     public static VarHandle x$VH() {
-        return GvoxExtent3D.x$VH;
+        return __GvoxExtent3D.x$VH;
     }
 
     /**
@@ -37,7 +37,7 @@ public class GvoxExtent3D {
      *}
      */
     public static int x$get(MemorySegment seg) {
-        return (int) GvoxExtent3D.x$VH.get(seg);
+        return (int) __GvoxExtent3D.x$VH.get(seg);
     }
 
     /**
@@ -47,21 +47,21 @@ public class GvoxExtent3D {
      *}
      */
     public static void x$set(MemorySegment seg, int x) {
-        GvoxExtent3D.x$VH.set(seg, x);
+        __GvoxExtent3D.x$VH.set(seg, x);
     }
 
     public static int x$get(MemorySegment seg, long index) {
-        return (int) GvoxExtent3D.x$VH.get(seg.asSlice(index * sizeof()));
+        return (int) __GvoxExtent3D.x$VH.get(seg.asSlice(index * sizeof()));
     }
 
     public static void x$set(MemorySegment seg, long index, int x) {
-        GvoxExtent3D.x$VH.set(seg.asSlice(index * sizeof()), x);
+        __GvoxExtent3D.x$VH.set(seg.asSlice(index * sizeof()), x);
     }
 
     static final VarHandle y$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("y"));
 
     public static VarHandle y$VH() {
-        return GvoxExtent3D.y$VH;
+        return __GvoxExtent3D.y$VH;
     }
 
     /**
@@ -71,7 +71,7 @@ public class GvoxExtent3D {
      *}
      */
     public static int y$get(MemorySegment seg) {
-        return (int) GvoxExtent3D.y$VH.get(seg);
+        return (int) __GvoxExtent3D.y$VH.get(seg);
     }
 
     /**
@@ -81,21 +81,21 @@ public class GvoxExtent3D {
      *}
      */
     public static void y$set(MemorySegment seg, int x) {
-        GvoxExtent3D.y$VH.set(seg, x);
+        __GvoxExtent3D.y$VH.set(seg, x);
     }
 
     public static int y$get(MemorySegment seg, long index) {
-        return (int) GvoxExtent3D.y$VH.get(seg.asSlice(index * sizeof()));
+        return (int) __GvoxExtent3D.y$VH.get(seg.asSlice(index * sizeof()));
     }
 
     public static void y$set(MemorySegment seg, long index, int x) {
-        GvoxExtent3D.y$VH.set(seg.asSlice(index * sizeof()), x);
+        __GvoxExtent3D.y$VH.set(seg.asSlice(index * sizeof()), x);
     }
 
     static final VarHandle z$VH = $struct$LAYOUT.varHandle(MemoryLayout.PathElement.groupElement("z"));
 
     public static VarHandle z$VH() {
-        return GvoxExtent3D.z$VH;
+        return __GvoxExtent3D.z$VH;
     }
 
     /**
@@ -105,7 +105,7 @@ public class GvoxExtent3D {
      *}
      */
     public static int z$get(MemorySegment seg) {
-        return (int) GvoxExtent3D.z$VH.get(seg);
+        return (int) __GvoxExtent3D.z$VH.get(seg);
     }
 
     /**
@@ -115,15 +115,15 @@ public class GvoxExtent3D {
      *}
      */
     public static void z$set(MemorySegment seg, int x) {
-        GvoxExtent3D.z$VH.set(seg, x);
+        __GvoxExtent3D.z$VH.set(seg, x);
     }
 
     public static int z$get(MemorySegment seg, long index) {
-        return (int) GvoxExtent3D.z$VH.get(seg.asSlice(index * sizeof()));
+        return (int) __GvoxExtent3D.z$VH.get(seg.asSlice(index * sizeof()));
     }
 
     public static void z$set(MemorySegment seg, long index, int x) {
-        GvoxExtent3D.z$VH.set(seg.asSlice(index * sizeof()), x);
+        __GvoxExtent3D.z$VH.set(seg.asSlice(index * sizeof()), x);
     }
 
     public static long sizeof() {

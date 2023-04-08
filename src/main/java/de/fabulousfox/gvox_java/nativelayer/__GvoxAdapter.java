@@ -2,13 +2,13 @@ package de.fabulousfox.gvox_java.nativelayer;
 
 /**
  * {@snippet :
- * typedef struct _GvoxAdapter GvoxAdapter;
+ * typedef struct __GvoxAdapter GvoxAdapter;
  *}
  */
-public final class GvoxAdapter {
+public final class __GvoxAdapter {
 
     // Suppresses default constructor, ensuring non-instantiability.
-    private GvoxAdapter() {
+    private __GvoxAdapter() {
     }
 }
 
