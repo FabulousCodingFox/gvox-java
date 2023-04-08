@@ -3,7 +3,7 @@ package de.fabulousfox.gvox_java.consumerapi.config.serialize;
 import de.fabulousfox.gvox_java.consumerapi.GvoxBaseAdapterInfo;
 
 public class GvoxColoredTextSerializeAdapterConfig implements GvoxBaseAdapterInfo {
-    public enum DOWNSCALE_MODE{
+    public enum DOWNSCALE_MODE {
         NEAREST,
         LINEAR
     }

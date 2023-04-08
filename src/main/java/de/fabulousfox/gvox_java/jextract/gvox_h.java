@@ -1766,12 +1766,6 @@ public class gvox_h {
     }
 
 
-
-
-
-
-
-
     public static MethodHandle gvox_demo_test$MH() {
         return RuntimeHelper.requireNonNull(RuntimeHelper.downcallHandle("gvox_demo_test", FunctionDescriptor.ofVoid()), "gvox_demo_test");
     }

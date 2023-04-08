@@ -18,12 +18,12 @@ public class Main {
         System.out.println("Creating Gvox context");
         GvoxContext gvox_ctx = Gvox.create_context();
 
-        GvoxFileInputAdapterConfig i_config = new GvoxFileInputAdapterConfig(){{
+        GvoxFileInputAdapterConfig i_config = new GvoxFileInputAdapterConfig() {{
             filepath = "C:/Users/fabif/IdeaProjects/VoxelTracing/src/main/resources/models/menger.vox";
             byteOffset = 0;
         }};
 
-        GvoxColoredTextSerializeAdapterConfig s_config = new GvoxColoredTextSerializeAdapterConfig(){{
+        GvoxColoredTextSerializeAdapterConfig s_config = new GvoxColoredTextSerializeAdapterConfig() {{
             non_color_max_value = 255;
         }};
 

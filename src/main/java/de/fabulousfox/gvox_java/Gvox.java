@@ -14,7 +14,6 @@ import de.fabulousfox.gvox_java.enums.GvoxResult;
 import de.fabulousfox.gvox_java.errors.GvoxAdapterContextNullException;
 import de.fabulousfox.gvox_java.errors.GvoxAdapterNullException;
 import de.fabulousfox.gvox_java.errors.GvoxContextNullException;
-import de.fabulousfox.gvox_java.errors.GvoxNotInitializedException;
 import de.fabulousfox.gvox_java.jextract.RuntimeHelper;
 import de.fabulousfox.gvox_java.jextract.gvox_h;
 import de.fabulousfox.gvox_java.structs.GvoxRegionRange;
@@ -29,7 +28,9 @@ import java.util.List;
 import static java.lang.foreign.ValueLayout.*;
 
 public class Gvox {
-    private Gvox() {}
+    private Gvox() {
+    }
+
     private static boolean initialized = false;
 
     private static HashMap<GvoxContext, MemorySegment> contexts = new HashMap<>();
@@ -37,8 +38,8 @@ public class Gvox {
     private static HashMap<GvoxBaseAdapterInfo, MemorySegment> adapterInfos = new HashMap<>();
     private static HashMap<GvoxAdapterContext, MemorySegment> adapterContexts = new HashMap<>();
 
-    public static void createCapabilities(){
-        if(initialized) return;
+    private static void checkInit() {
+        if (initialized) return;
         contexts = new HashMap<>();
         adapters = new HashMap<>();
         adapterInfos = new HashMap<>();
@@ -46,40 +47,44 @@ public class Gvox {
         initialized = true;
     }
 
-    public static void close(){
-        if(!initialized) return;
-        for(MemorySegment mem : contexts.values()){
+    public static void close() {
+        if (!initialized) return;
+        for (MemorySegment mem : contexts.values()) {
             gvox_h.gvox_destroy_context(mem);
         }
         RuntimeHelper.arena.close();
         initialized = false;
     }
 
-    public static GvoxContext create_context(){
-        if(!initialized) throw new GvoxNotInitializedException();
+    public static GvoxContext create_context() {
+        checkInit();
         MemorySegment mem = gvox_h.gvox_create_context();
         GvoxContext ctx = new GvoxContext();
         contexts.put(ctx, mem);
         return ctx;
     }
-    public static void destroy_context(GvoxContext context){
-        if(!initialized) throw new GvoxNotInitializedException();
+
+    public static void destroy_context(GvoxContext context) {
+        checkInit();
         MemorySegment mem = contexts.getOrDefault(context, null);
-        if(mem == null) throw new GvoxContextNullException();
+        if (mem == null) throw new GvoxContextNullException();
         gvox_h.gvox_destroy_context(mem);
         contexts.remove(context);
     }
 
-    public static GvoxResult get_result(GvoxContext ctx){
-        if(!initialized) throw new GvoxNotInitializedException();
+    public static GvoxResult get_result(GvoxContext ctx) {
+        checkInit();
         MemorySegment mem = contexts.getOrDefault(ctx, null);
-        if(mem == null) throw new GvoxContextNullException();
+        if (mem == null) throw new GvoxContextNullException();
         return GvoxResult.fromInt(gvox_h.gvox_get_result(mem));
-    };
-    public static String get_result_message(GvoxContext ctx){
-        if(!initialized) throw new GvoxNotInitializedException();
+    }
+
+    ;
+
+    public static String get_result_message(GvoxContext ctx) {
+        checkInit();
         MemorySegment contextMem = contexts.getOrDefault(ctx, null);
-        if(contextMem == null) throw new GvoxContextNullException();
+        if (contextMem == null) throw new GvoxContextNullException();
 
         MemorySegment str_size = RuntimeHelper.arena.allocate(ValueLayout.OfLong.JAVA_LONG);
         gvox_h.gvox_get_result_message(contextMem, null, str_size);
@@ -87,18 +92,23 @@ public class Gvox {
         MemorySegment str_buffer = RuntimeHelper.arena.allocateArray(ValueLayout.OfByte.JAVA_CHAR, size);
         gvox_h.gvox_get_result_message(contextMem, str_buffer, str_size);
         return str_buffer.getUtf8String(0);
-    };
-    public static void pop_result(GvoxContext ctx){
-        if(!initialized) throw new GvoxNotInitializedException();
+    }
+
+    ;
+
+    public static void pop_result(GvoxContext ctx) {
+        checkInit();
         MemorySegment contextMem = contexts.getOrDefault(ctx, null);
-        if(contextMem == null) throw new GvoxContextNullException();
+        if (contextMem == null) throw new GvoxContextNullException();
         gvox_h.gvox_pop_result(contextMem);
-    };
+    }
+
+    ;
 
     public static GvoxAdapter get_input_adapter(GvoxContext context, String name) {
-        if(!initialized) throw new GvoxNotInitializedException();
+        checkInit();
         MemorySegment contextMem = contexts.getOrDefault(context, null);
-        if(contextMem == null) throw new GvoxContextNullException();
+        if (contextMem == null) throw new GvoxContextNullException();
 
         MemorySegment mem = gvox_h.gvox_get_input_adapter(contextMem, RuntimeHelper.arena.allocateUtf8String(name));
         GvoxAdapter adapter = new GvoxAdapter();
@@ -106,10 +116,10 @@ public class Gvox {
         return adapter;
     }
 
-    public static GvoxAdapter get_output_adapter(GvoxContext context, String name){
-        if(!initialized) throw new GvoxNotInitializedException();
+    public static GvoxAdapter get_output_adapter(GvoxContext context, String name) {
+        checkInit();
         MemorySegment contextMem = contexts.getOrDefault(context, null);
-        if(contextMem == null) throw new GvoxContextNullException();
+        if (contextMem == null) throw new GvoxContextNullException();
 
         MemorySegment mem = gvox_h.gvox_get_output_adapter(contextMem, RuntimeHelper.arena.allocateUtf8String(name));
         GvoxAdapter adapter = new GvoxAdapter();
@@ -117,10 +127,10 @@ public class Gvox {
         return adapter;
     }
 
-    public static GvoxAdapter get_parse_adapter(GvoxContext context, String name){
-        if(!initialized) throw new GvoxNotInitializedException();
+    public static GvoxAdapter get_parse_adapter(GvoxContext context, String name) {
+        checkInit();
         MemorySegment contextMem = contexts.getOrDefault(context, null);
-        if(contextMem == null) throw new GvoxContextNullException();
+        if (contextMem == null) throw new GvoxContextNullException();
 
         MemorySegment mem = gvox_h.gvox_get_parse_adapter(contextMem, RuntimeHelper.arena.allocateUtf8String(name));
         GvoxAdapter adapter = new GvoxAdapter();
@@ -128,10 +138,10 @@ public class Gvox {
         return adapter;
     }
 
-    public static GvoxAdapter get_serialize_adapter(GvoxContext context, String name){
-        if(!initialized) throw new GvoxNotInitializedException();
+    public static GvoxAdapter get_serialize_adapter(GvoxContext context, String name) {
+        checkInit();
         MemorySegment contextMem = contexts.getOrDefault(context, null);
-        if(contextMem == null) throw new GvoxContextNullException();
+        if (contextMem == null) throw new GvoxContextNullException();
 
         MemorySegment mem = gvox_h.gvox_get_serialize_adapter(contextMem, RuntimeHelper.arena.allocateUtf8String(name));
         GvoxAdapter adapter = new GvoxAdapter();
@@ -139,16 +149,16 @@ public class Gvox {
         return adapter;
     }
 
-    public static GvoxAdapterContext create_adapter_context(GvoxContext context, GvoxAdapter adapter, GvoxBaseAdapterInfo config){
-        if(!initialized) throw new GvoxNotInitializedException();
+    public static GvoxAdapterContext create_adapter_context(GvoxContext context, GvoxAdapter adapter, GvoxBaseAdapterInfo config) {
+        checkInit();
         MemorySegment contextMem = contexts.getOrDefault(context, null);
         MemorySegment adapterMem = adapters.getOrDefault(adapter, null);
         MemorySegment configMem = adapterInfos.getOrDefault(config, null);
-        if(contextMem == null) throw new GvoxContextNullException();
-        if(adapterMem == null) throw new GvoxAdapterNullException();
+        if (contextMem == null) throw new GvoxContextNullException();
+        if (adapterMem == null) throw new GvoxAdapterNullException();
 
-        if(configMem == null && config != null){
-            if(config instanceof GvoxByteBufferInputAdapterConfig config1){
+        if (configMem == null && config != null) {
+            if (config instanceof GvoxByteBufferInputAdapterConfig config1) {
                 StructLayout layout = MemoryLayout.structLayout(
                         ADDRESS.withBitAlignment(64).asUnbounded().withName("data"),
                         JAVA_LONG.withName("size")
@@ -157,7 +167,7 @@ public class Gvox {
                 configMem.set(ADDRESS, 0, MemorySegment.ofAddress(config1.buffer.address()));
                 configMem.set(JAVA_LONG, 8, config1.buffer.byteSize());
             }
-            if(config instanceof GvoxFileInputAdapterConfig config1){
+            if (config instanceof GvoxFileInputAdapterConfig config1) {
                 StructLayout layout = MemoryLayout.structLayout(
                         ADDRESS.withBitAlignment(64).asUnbounded().withName("filepath"),
                         JAVA_LONG.withName("byte_offset")
@@ -166,14 +176,14 @@ public class Gvox {
                 configMem.set(ADDRESS, 0, MemorySegment.ofAddress(RuntimeHelper.arena.allocateUtf8String(config1.filepath).address()));
                 configMem.set(JAVA_LONG, 8, config1.byteOffset);
             }
-            if(config instanceof GvoxFileOutputAdapterConfig config1){
+            if (config instanceof GvoxFileOutputAdapterConfig config1) {
                 StructLayout layout = MemoryLayout.structLayout(
                         ADDRESS.withBitAlignment(64).asUnbounded().withName("filepath")
                 );
                 configMem = RuntimeHelper.arena.allocate(layout);
                 configMem.set(ADDRESS, 0, MemorySegment.ofAddress(RuntimeHelper.arena.allocateUtf8String(config1.filepath).address()));
             }
-            if(config instanceof GvoxVoxlapParseAdapterConfig config1){
+            if (config instanceof GvoxVoxlapParseAdapterConfig config1) {
                 StructLayout layout = MemoryLayout.structLayout(
                         JAVA_LONG.withName("size_x"),
                         JAVA_LONG.withName("size_y"),
@@ -188,7 +198,7 @@ public class Gvox {
                 configMem.set(JAVA_LONG, 24, config1.make_solid ? 1 : 0);
                 configMem.set(JAVA_LONG, 32, config1.is_ace_of_spades ? 1 : 0);
             }
-            if(config instanceof GvoxColoredTextSerializeAdapterConfig config1){
+            if (config instanceof GvoxColoredTextSerializeAdapterConfig config1) {
                 StructLayout layout = MemoryLayout.structLayout(
                         JAVA_LONG.withName("downscale_factor"),
                         JAVA_LONG.withName("downscale_mode"),
@@ -203,17 +213,19 @@ public class Gvox {
             }
         }
 
-        if(configMem == null) configMem = /*nullptr*/ RuntimeHelper.arena.allocate(ADDRESS, MemorySegment.ofAddress(MemorySegment.NULL.address()));
+        if (configMem == null)
+            configMem = /*nullptr*/ RuntimeHelper.arena.allocate(ADDRESS, MemorySegment.ofAddress(MemorySegment.NULL.address()));
 
         MemorySegment mem = gvox_h.gvox_create_adapter_context(contextMem, adapterMem, configMem);
         GvoxAdapterContext ctx = new GvoxAdapterContext();
         adapterContexts.put(ctx, mem);
         return ctx;
     }
-    public static void destroy_adapter_context(GvoxAdapterContext adapterContext){
-        if(!initialized) throw new GvoxNotInitializedException();
+
+    public static void destroy_adapter_context(GvoxAdapterContext adapterContext) {
+        checkInit();
         MemorySegment adapterContextMem = adapterContexts.getOrDefault(adapterContext, null);
-        if(adapterContextMem == null) throw new GvoxAdapterContextNullException();
+        if (adapterContextMem == null) throw new GvoxAdapterContextNullException();
         gvox_h.gvox_destroy_adapter_context(adapterContextMem);
     }
 
@@ -224,16 +236,16 @@ public class Gvox {
             GvoxAdapterContext serializeContext,
             GvoxRegionRange range,
             List<GvoxChannelBit> channels
-    ){
-        if(!initialized) throw new GvoxNotInitializedException();
+    ) {
+        checkInit();
         MemorySegment inputContextMem = adapterContexts.getOrDefault(inputContext, null);
         MemorySegment outputContextMem = adapterContexts.getOrDefault(outputContext, null);
         MemorySegment parseContextMem = adapterContexts.getOrDefault(parseContext, null);
         MemorySegment serializeContextMem = adapterContexts.getOrDefault(serializeContext, null);
-        if(inputContextMem == null) throw new GvoxAdapterContextNullException("inputContext");
-        if(outputContextMem == null) throw new GvoxAdapterContextNullException("outputContext");
-        if(parseContextMem == null) throw new GvoxAdapterContextNullException("parseContext");
-        if(serializeContextMem == null) throw new GvoxAdapterContextNullException("serializeContext");
+        if (inputContextMem == null) throw new GvoxAdapterContextNullException("inputContext");
+        if (outputContextMem == null) throw new GvoxAdapterContextNullException("outputContext");
+        if (parseContextMem == null) throw new GvoxAdapterContextNullException("parseContext");
+        if (serializeContextMem == null) throw new GvoxAdapterContextNullException("serializeContext");
 
         MemorySegment regionRange = fromGvoxRegionRange(range);
         int targetChannels = fromGvoxChannelBit(channels);
@@ -275,7 +287,7 @@ public class Gvox {
                 fromGvoxChannelBit(channels));
     }*/
 
-    private static MemorySegment fromGvoxRegionRange(GvoxRegionRange range){
+    private static MemorySegment fromGvoxRegionRange(GvoxRegionRange range) {
         StructLayout layout = MemoryLayout.structLayout(
                 MemoryLayout.structLayout(
                         JAVA_LONG.withName("x"),
@@ -298,11 +310,11 @@ public class Gvox {
         return mem;
     }
 
-    private static int fromGvoxChannelBit(List<GvoxChannelBit> iterable){
-        if(iterable.size() == 0) return 0;
-        if(iterable.size() == 1) return iterable.get(0).getGVOXIntValue();
+    private static int fromGvoxChannelBit(List<GvoxChannelBit> iterable) {
+        if (iterable.size() == 0) return 0;
+        if (iterable.size() == 1) return iterable.get(0).getGVOXIntValue();
         int result = iterable.get(0).getGVOXIntValue();
-        for(int i = 1; i < iterable.size(); i++) {
+        for (int i = 1; i < iterable.size(); i++) {
             result |= iterable.get(i).getGVOXIntValue();
         }
         return result;
