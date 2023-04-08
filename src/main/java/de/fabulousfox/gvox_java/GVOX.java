@@ -15,11 +15,12 @@ import de.fabulousfox.gvox_java.enums.GvoxResult;
 import de.fabulousfox.gvox_java.errors.GvoxAdapterContextNullException;
 import de.fabulousfox.gvox_java.errors.GvoxAdapterNullException;
 import de.fabulousfox.gvox_java.errors.GvoxContextNullException;
-import de.fabulousfox.gvox_java.nativelayer.__GvoxNativeRuntimeHelper;
 import de.fabulousfox.gvox_java.nativelayer.__GvoxNativeIncludeInterface;
+import de.fabulousfox.gvox_java.nativelayer.__GvoxNativeRuntimeHelper;
 import de.fabulousfox.gvox_java.structs.GvoxRegionRange;
 
-import java.io.*;
+import java.io.IOException;
+import java.io.InputStream;
 import java.lang.foreign.MemoryLayout;
 import java.lang.foreign.MemorySegment;
 import java.lang.foreign.StructLayout;
@@ -62,13 +63,13 @@ public class GVOX {
 
         String osName = System.getProperty("os.name");
 
-        if(osName.startsWith("Windows")) {
-            try{
+        if (osName.startsWith("Windows")) {
+            try {
                 Path temp = Files.createTempFile("resource-", ".dll");
                 String path = "win64/gvox" + VERSION.replace(".", "_") + ".dll";
 
                 InputStream is = GVOX.class.getClassLoader().getResourceAsStream(path);
-                if(is == null) throw new RuntimeException("Failed to load native library");
+                if (is == null) throw new RuntimeException("Failed to load native library");
 
                 Files.copy(is, temp, StandardCopyOption.REPLACE_EXISTING);
                 System.load(temp.toAbsolutePath().toString());
@@ -96,6 +97,7 @@ public class GVOX {
 
     /**
      * Creates a new context.
+     *
      * @return The new context.
      */
     public static GvoxContext create_context() {
@@ -108,6 +110,7 @@ public class GVOX {
 
     /**
      * Destroys the given context.
+     *
      * @param context The context to destroy.
      */
     public static void destroy_context(GvoxContext context) {
@@ -120,6 +123,7 @@ public class GVOX {
 
     /**
      * Gets the result status of the last operation.
+     *
      * @param ctx The context to get the result from.
      * @return The result status.
      */
@@ -128,10 +132,13 @@ public class GVOX {
         MemorySegment mem = contexts.getOrDefault(ctx, null);
         if (mem == null) throw new GvoxContextNullException();
         return GvoxResult.fromInt(__GvoxNativeIncludeInterface.gvox_get_result(mem));
-    };
+    }
+
+    ;
 
     /**
      * Gets the result message of the last operation.
+     *
      * @param ctx The context to get the result message from.
      * @return The result message.
      */
@@ -146,10 +153,13 @@ public class GVOX {
         MemorySegment str_buffer = __GvoxNativeRuntimeHelper.arena.allocateArray(ValueLayout.OfByte.JAVA_CHAR, size);
         __GvoxNativeIncludeInterface.gvox_get_result_message(contextMem, str_buffer, str_size);
         return str_buffer.getUtf8String(0);
-    };
+    }
+
+    ;
 
     /**
      * Pops the result status of the last operation.
+     *
      * @param ctx The context to pop the result from.
      */
     public static void pop_result(GvoxContext ctx) {
@@ -157,12 +167,15 @@ public class GVOX {
         MemorySegment contextMem = contexts.getOrDefault(ctx, null);
         if (contextMem == null) throw new GvoxContextNullException();
         __GvoxNativeIncludeInterface.gvox_pop_result(contextMem);
-    };
+    }
+
+    ;
 
     /**
      * Gets the input adapter object from the given name.
+     *
      * @param context The context to get the adapter from.
-     * @param name The name of the adapter.
+     * @param name    The name of the adapter.
      * @return The adapter object.
      */
     public static GvoxAdapter get_input_adapter(GvoxContext context, String name) {
@@ -178,8 +191,9 @@ public class GVOX {
 
     /**
      * Gets the output adapter object from the given name.
+     *
      * @param context The context to get the adapter from.
-     * @param name The name of the adapter.
+     * @param name    The name of the adapter.
      * @return The adapter object.
      */
     public static GvoxAdapter get_output_adapter(GvoxContext context, String name) {
@@ -195,8 +209,9 @@ public class GVOX {
 
     /**
      * Gets the parsing adapter object from the given name.
+     *
      * @param context The context to get the adapter from.
-     * @param name The name of the adapter.
+     * @param name    The name of the adapter.
      * @return The adapter object.
      */
     public static GvoxAdapter get_parse_adapter(GvoxContext context, String name) {
@@ -212,8 +227,9 @@ public class GVOX {
 
     /**
      * Gets the serialization adapter object from the given name.
+     *
      * @param context The context to get the adapter from.
-     * @param name The name of the adapter.
+     * @param name    The name of the adapter.
      * @return The adapter object.
      */
     public static GvoxAdapter get_serialize_adapter(GvoxContext context, String name) {
@@ -229,9 +245,10 @@ public class GVOX {
 
     /**
      * Creates an adapter context from the given adapter and its settings.
+     *
      * @param context The context to create the adapter context from.
      * @param adapter The adapter to create the adapter context from.
-     * @param config The configuration of the adapter.
+     * @param config  The configuration of the adapter.
      * @return The adapter context.
      */
     public static GvoxAdapterContext create_adapter_context(GvoxContext context, GvoxAdapter adapter, GvoxBaseAdapterInfo config) {
@@ -296,14 +313,16 @@ public class GVOX {
                 configMem.set(JAVA_LONG, 16, config1.non_color_max_value == -1 ? 255 : config1.non_color_max_value);
                 configMem.set(JAVA_INT, 24, config1.vertical ? 1 : 0);
             }
-            if(config instanceof GvoxByteBufferOutputAdapterConfig config1){
+            if (config instanceof GvoxByteBufferOutputAdapterConfig config1) {
                 StructLayout layout = MemoryLayout.structLayout(
                         ADDRESS.withBitAlignment(64).asUnbounded().withName("out_size"),
                         ADDRESS.withBitAlignment(64).asUnbounded().withName("out_byte_buffer_ptr"),
                         ADDRESS.withBitAlignment(64).asUnbounded().withName("allocate")
                 );
                 configMem = __GvoxNativeRuntimeHelper.arena.allocate(layout);
-                //TODO
+                configMem.set(ADDRESS, 0, MemorySegment.ofAddress(MemorySegment.NULL.address()));
+                configMem.set(ADDRESS, 8, MemorySegment.ofAddress(MemorySegment.NULL.address()));
+                //TODO: Implement allocate
             }
         }
 
@@ -318,6 +337,7 @@ public class GVOX {
 
     /**
      * Destroys the given adapter context.
+     *
      * @param adapterContext The adapter context to destroy.
      */
     public static void destroy_adapter_context(GvoxAdapterContext adapterContext) {
@@ -329,12 +349,13 @@ public class GVOX {
 
     /**
      * Blits a region of the input context to the output context.
-     * @param inputContext The input context.
-     * @param outputContext The output context.
-     * @param parseContext The parse context.
+     *
+     * @param inputContext     The input context.
+     * @param outputContext    The output context.
+     * @param parseContext     The parse context.
      * @param serializeContext The serialize context.
-     * @param range The region range.
-     * @param channels The channels to blit.
+     * @param range            The region range.
+     * @param channels         The channels to blit.
      */
     public static void blit_region(
             GvoxAdapterContext inputContext,
@@ -362,12 +383,13 @@ public class GVOX {
 
     /**
      * Blits a region of the input context to the output context.
-     * @param inputContext The input context.
-     * @param outputContext The output context.
-     * @param parseContext The parse context.
+     *
+     * @param inputContext     The input context.
+     * @param outputContext    The output context.
+     * @param parseContext     The parse context.
      * @param serializeContext The serialize context.
-     * @param range The region range.
-     * @param channels The channels to blit.
+     * @param range            The region range.
+     * @param channels         The channels to blit.
      */
     public static void blit_region_parse_driven(
             GvoxAdapterContext inputContext,
@@ -376,7 +398,7 @@ public class GVOX {
             GvoxAdapterContext serializeContext,
             GvoxRegionRange range,
             List<GvoxChannelBit> channels
-    ){
+    ) {
         checkInit();
         MemorySegment inputContextMem = adapterContexts.getOrDefault(inputContext, null);
         MemorySegment outputContextMem = adapterContexts.getOrDefault(outputContext, null);
@@ -395,12 +417,13 @@ public class GVOX {
 
     /**
      * Blits a region of the input context to the output context.
-     * @param inputContext The input context.
-     * @param outputContext The output context.
-     * @param parseContext The parse context.
+     *
+     * @param inputContext     The input context.
+     * @param outputContext    The output context.
+     * @param parseContext     The parse context.
      * @param serializeContext The serialize context.
-     * @param range The region range.
-     * @param channels The channels to blit.
+     * @param range            The region range.
+     * @param channels         The channels to blit.
      */
     public static void blit_region_serialize_driven(
             GvoxAdapterContext inputContext,
@@ -409,7 +432,7 @@ public class GVOX {
             GvoxAdapterContext serializeContext,
             GvoxRegionRange range,
             List<GvoxChannelBit> channels
-    ){
+    ) {
         checkInit();
         MemorySegment inputContextMem = adapterContexts.getOrDefault(inputContext, null);
         MemorySegment outputContextMem = adapterContexts.getOrDefault(outputContext, null);

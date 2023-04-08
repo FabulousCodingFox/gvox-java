@@ -55,6 +55,7 @@ public enum GvoxResult {
 
     /**
      * Returns the internal GVOX error code integer value.
+     *
      * @return Error code integer value.
      */
     public int getGVOXIntValue() {
@@ -63,6 +64,7 @@ public enum GvoxResult {
 
     /**
      * Returns the GvoxResult enum value for the given integer value.
+     *
      * @param value The integer value to convert.
      * @return The GvoxResult enum value.
      */

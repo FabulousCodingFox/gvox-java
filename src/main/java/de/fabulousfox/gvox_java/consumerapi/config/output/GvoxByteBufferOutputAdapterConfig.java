@@ -19,7 +19,7 @@ public class GvoxByteBufferOutputAdapterConfig implements GvoxBaseAdapterInfo {
         return 0;
     }
 
-    public byte[] getBufferContent(){
+    public byte[] getBufferContent() {
         //TODO
         return new byte[(int) getBufferSize()];
     }
