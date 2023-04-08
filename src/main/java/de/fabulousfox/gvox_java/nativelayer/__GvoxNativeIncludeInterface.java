@@ -1,4 +1,4 @@
-package de.fabulousfox.gvox_java.jextract;
+package de.fabulousfox.gvox_java.nativelayer;
 
 import java.lang.foreign.FunctionDescriptor;
 import java.lang.foreign.MemoryLayout;
@@ -9,7 +9,7 @@ import java.lang.invoke.VarHandle;
 
 import static java.lang.foreign.ValueLayout.*;
 
-public class gvox_h {
+public class __GvoxNativeIncludeInterface {
 
     public static final OfByte C_CHAR = Constants$root.C_CHAR$LAYOUT;
     public static final OfShort C_SHORT = Constants$root.C_SHORT$LAYOUT;
@@ -319,7 +319,7 @@ public class gvox_h {
     public static final OfAddress va_list = Constants$root.C_POINTER$LAYOUT;
 
     public static MethodHandle __va_start$MH() {
-        return RuntimeHelper.requireNonNull(__constants$0.__va_start$MH, "__va_start");
+        return __GvoxNativeRuntimeHelper.requireNonNull(__constants$0.__va_start$MH, "__va_start");
     }
 
     /**
@@ -344,7 +344,7 @@ public class gvox_h {
     public static final OfLong intptr_t = Constants$root.C_LONG_LONG$LAYOUT;
 
     public static MethodHandle __security_init_cookie$MH() {
-        return RuntimeHelper.requireNonNull(__constants$0.__security_init_cookie$MH, "__security_init_cookie");
+        return __GvoxNativeRuntimeHelper.requireNonNull(__constants$0.__security_init_cookie$MH, "__security_init_cookie");
     }
 
     /**
@@ -362,7 +362,7 @@ public class gvox_h {
     }
 
     public static MethodHandle __security_check_cookie$MH() {
-        return RuntimeHelper.requireNonNull(__constants$0.__security_check_cookie$MH, "__security_check_cookie");
+        return __GvoxNativeRuntimeHelper.requireNonNull(__constants$0.__security_check_cookie$MH, "__security_check_cookie");
     }
 
     /**
@@ -380,7 +380,7 @@ public class gvox_h {
     }
 
     public static MethodHandle __report_gsfailure$MH() {
-        return RuntimeHelper.requireNonNull(__constants$0.__report_gsfailure$MH, "__report_gsfailure");
+        return __GvoxNativeRuntimeHelper.requireNonNull(__constants$0.__report_gsfailure$MH, "__report_gsfailure");
     }
 
     /**
@@ -406,7 +406,7 @@ public class gvox_h {
     }
 
     public static MemorySegment __security_cookie$SEGMENT() {
-        return RuntimeHelper.requireNonNull(__constants$0.__security_cookie$SEGMENT, "__security_cookie");
+        return __GvoxNativeRuntimeHelper.requireNonNull(__constants$0.__security_cookie$SEGMENT, "__security_cookie");
     }
 
     /**
@@ -416,7 +416,7 @@ public class gvox_h {
      *}
      */
     public static long __security_cookie$get() {
-        return (long) __constants$0.__security_cookie$VH.get(RuntimeHelper.requireNonNull(__constants$0.__security_cookie$SEGMENT, "__security_cookie"));
+        return (long) __constants$0.__security_cookie$VH.get(__GvoxNativeRuntimeHelper.requireNonNull(__constants$0.__security_cookie$SEGMENT, "__security_cookie"));
     }
 
     /**
@@ -426,7 +426,7 @@ public class gvox_h {
      *}
      */
     public static void __security_cookie$set(long x) {
-        __constants$0.__security_cookie$VH.set(RuntimeHelper.requireNonNull(__constants$0.__security_cookie$SEGMENT, "__security_cookie"), x);
+        __constants$0.__security_cookie$VH.set(__GvoxNativeRuntimeHelper.requireNonNull(__constants$0.__security_cookie$SEGMENT, "__security_cookie"), x);
     }
 
     /**
@@ -704,7 +704,7 @@ public class gvox_h {
     }
 
     public static MethodHandle gvox_create_context$MH() {
-        return RuntimeHelper.requireNonNull(__constants$0.gvox_create_context$MH, "gvox_create_context");
+        return __GvoxNativeRuntimeHelper.requireNonNull(__constants$0.gvox_create_context$MH, "gvox_create_context");
     }
 
     /**
@@ -722,7 +722,7 @@ public class gvox_h {
     }
 
     public static MethodHandle gvox_destroy_context$MH() {
-        return RuntimeHelper.requireNonNull(__constants$1.gvox_destroy_context$MH, "gvox_destroy_context");
+        return __GvoxNativeRuntimeHelper.requireNonNull(__constants$1.gvox_destroy_context$MH, "gvox_destroy_context");
     }
 
     /**
@@ -740,7 +740,7 @@ public class gvox_h {
     }
 
     public static MethodHandle gvox_get_result$MH() {
-        return RuntimeHelper.requireNonNull(__constants$1.gvox_get_result$MH, "gvox_get_result");
+        return __GvoxNativeRuntimeHelper.requireNonNull(__constants$1.gvox_get_result$MH, "gvox_get_result");
     }
 
     /**
@@ -758,7 +758,7 @@ public class gvox_h {
     }
 
     public static MethodHandle gvox_get_result_message$MH() {
-        return RuntimeHelper.requireNonNull(__constants$1.gvox_get_result_message$MH, "gvox_get_result_message");
+        return __GvoxNativeRuntimeHelper.requireNonNull(__constants$1.gvox_get_result_message$MH, "gvox_get_result_message");
     }
 
     /**
@@ -776,7 +776,7 @@ public class gvox_h {
     }
 
     public static MethodHandle gvox_pop_result$MH() {
-        return RuntimeHelper.requireNonNull(__constants$1.gvox_pop_result$MH, "gvox_pop_result");
+        return __GvoxNativeRuntimeHelper.requireNonNull(__constants$1.gvox_pop_result$MH, "gvox_pop_result");
     }
 
     /**
@@ -794,7 +794,7 @@ public class gvox_h {
     }
 
     public static MethodHandle gvox_register_input_adapter$MH() {
-        return RuntimeHelper.requireNonNull(__constants$1.gvox_register_input_adapter$MH, "gvox_register_input_adapter");
+        return __GvoxNativeRuntimeHelper.requireNonNull(__constants$1.gvox_register_input_adapter$MH, "gvox_register_input_adapter");
     }
 
     /**
@@ -812,7 +812,7 @@ public class gvox_h {
     }
 
     public static MethodHandle gvox_get_input_adapter$MH() {
-        return RuntimeHelper.requireNonNull(__constants$1.gvox_get_input_adapter$MH, "gvox_get_input_adapter");
+        return __GvoxNativeRuntimeHelper.requireNonNull(__constants$1.gvox_get_input_adapter$MH, "gvox_get_input_adapter");
     }
 
     /**
@@ -830,7 +830,7 @@ public class gvox_h {
     }
 
     public static MethodHandle gvox_register_output_adapter$MH() {
-        return RuntimeHelper.requireNonNull(__constants$2.gvox_register_output_adapter$MH, "gvox_register_output_adapter");
+        return __GvoxNativeRuntimeHelper.requireNonNull(__constants$2.gvox_register_output_adapter$MH, "gvox_register_output_adapter");
     }
 
     /**
@@ -848,7 +848,7 @@ public class gvox_h {
     }
 
     public static MethodHandle gvox_get_output_adapter$MH() {
-        return RuntimeHelper.requireNonNull(__constants$2.gvox_get_output_adapter$MH, "gvox_get_output_adapter");
+        return __GvoxNativeRuntimeHelper.requireNonNull(__constants$2.gvox_get_output_adapter$MH, "gvox_get_output_adapter");
     }
 
     /**
@@ -866,7 +866,7 @@ public class gvox_h {
     }
 
     public static MethodHandle gvox_register_parse_adapter$MH() {
-        return RuntimeHelper.requireNonNull(__constants$2.gvox_register_parse_adapter$MH, "gvox_register_parse_adapter");
+        return __GvoxNativeRuntimeHelper.requireNonNull(__constants$2.gvox_register_parse_adapter$MH, "gvox_register_parse_adapter");
     }
 
     /**
@@ -884,7 +884,7 @@ public class gvox_h {
     }
 
     public static MethodHandle gvox_get_parse_adapter$MH() {
-        return RuntimeHelper.requireNonNull(__constants$2.gvox_get_parse_adapter$MH, "gvox_get_parse_adapter");
+        return __GvoxNativeRuntimeHelper.requireNonNull(__constants$2.gvox_get_parse_adapter$MH, "gvox_get_parse_adapter");
     }
 
     /**
@@ -902,7 +902,7 @@ public class gvox_h {
     }
 
     public static MethodHandle gvox_register_serialize_adapter$MH() {
-        return RuntimeHelper.requireNonNull(__constants$2.gvox_register_serialize_adapter$MH, "gvox_register_serialize_adapter");
+        return __GvoxNativeRuntimeHelper.requireNonNull(__constants$2.gvox_register_serialize_adapter$MH, "gvox_register_serialize_adapter");
     }
 
     /**
@@ -920,7 +920,7 @@ public class gvox_h {
     }
 
     public static MethodHandle gvox_get_serialize_adapter$MH() {
-        return RuntimeHelper.requireNonNull(__constants$2.gvox_get_serialize_adapter$MH, "gvox_get_serialize_adapter");
+        return __GvoxNativeRuntimeHelper.requireNonNull(__constants$2.gvox_get_serialize_adapter$MH, "gvox_get_serialize_adapter");
     }
 
     /**
@@ -938,7 +938,7 @@ public class gvox_h {
     }
 
     public static MethodHandle gvox_create_adapter_context$MH() {
-        return RuntimeHelper.requireNonNull(__constants$3.gvox_create_adapter_context$MH, "gvox_create_adapter_context");
+        return __GvoxNativeRuntimeHelper.requireNonNull(__constants$3.gvox_create_adapter_context$MH, "gvox_create_adapter_context");
     }
 
     /**
@@ -956,7 +956,7 @@ public class gvox_h {
     }
 
     public static MethodHandle gvox_destroy_adapter_context$MH() {
-        return RuntimeHelper.requireNonNull(__constants$3.gvox_destroy_adapter_context$MH, "gvox_destroy_adapter_context");
+        return __GvoxNativeRuntimeHelper.requireNonNull(__constants$3.gvox_destroy_adapter_context$MH, "gvox_destroy_adapter_context");
     }
 
     /**
@@ -974,7 +974,7 @@ public class gvox_h {
     }
 
     public static MethodHandle gvox_blit_region$MH() {
-        return RuntimeHelper.requireNonNull(__constants$3.gvox_blit_region$MH, "gvox_blit_region");
+        return __GvoxNativeRuntimeHelper.requireNonNull(__constants$3.gvox_blit_region$MH, "gvox_blit_region");
     }
 
     /**
@@ -992,7 +992,7 @@ public class gvox_h {
     }
 
     public static MethodHandle gvox_blit_region_parse_driven$MH() {
-        return RuntimeHelper.requireNonNull(__constants$3.gvox_blit_region_parse_driven$MH, "gvox_blit_region_parse_driven");
+        return __GvoxNativeRuntimeHelper.requireNonNull(__constants$3.gvox_blit_region_parse_driven$MH, "gvox_blit_region_parse_driven");
     }
 
     /**
@@ -1010,7 +1010,7 @@ public class gvox_h {
     }
 
     public static MethodHandle gvox_blit_region_serialize_driven$MH() {
-        return RuntimeHelper.requireNonNull(__constants$3.gvox_blit_region_serialize_driven$MH, "gvox_blit_region_serialize_driven");
+        return __GvoxNativeRuntimeHelper.requireNonNull(__constants$3.gvox_blit_region_serialize_driven$MH, "gvox_blit_region_serialize_driven");
     }
 
     /**
@@ -1028,7 +1028,7 @@ public class gvox_h {
     }
 
     public static MethodHandle gvox_query_region_flags$MH() {
-        return RuntimeHelper.requireNonNull(__constants$3.gvox_query_region_flags$MH, "gvox_query_region_flags");
+        return __GvoxNativeRuntimeHelper.requireNonNull(__constants$3.gvox_query_region_flags$MH, "gvox_query_region_flags");
     }
 
     /**
@@ -1046,7 +1046,7 @@ public class gvox_h {
     }
 
     public static MethodHandle gvox_load_region_range$MH() {
-        return RuntimeHelper.requireNonNull(constants$4.gvox_load_region_range$MH, "gvox_load_region_range");
+        return __GvoxNativeRuntimeHelper.requireNonNull(constants$4.gvox_load_region_range$MH, "gvox_load_region_range");
     }
 
     /**
@@ -1064,7 +1064,7 @@ public class gvox_h {
     }
 
     public static MethodHandle gvox_unload_region_range$MH() {
-        return RuntimeHelper.requireNonNull(constants$4.gvox_unload_region_range$MH, "gvox_unload_region_range");
+        return __GvoxNativeRuntimeHelper.requireNonNull(constants$4.gvox_unload_region_range$MH, "gvox_unload_region_range");
     }
 
     /**
@@ -1082,7 +1082,7 @@ public class gvox_h {
     }
 
     public static MethodHandle gvox_sample_region$MH() {
-        return RuntimeHelper.requireNonNull(constants$4.gvox_sample_region$MH, "gvox_sample_region");
+        return __GvoxNativeRuntimeHelper.requireNonNull(constants$4.gvox_sample_region$MH, "gvox_sample_region");
     }
 
     /**
@@ -1100,7 +1100,7 @@ public class gvox_h {
     }
 
     public static MethodHandle gvox_adapter_push_error$MH() {
-        return RuntimeHelper.requireNonNull(constants$4.gvox_adapter_push_error$MH, "gvox_adapter_push_error");
+        return __GvoxNativeRuntimeHelper.requireNonNull(constants$4.gvox_adapter_push_error$MH, "gvox_adapter_push_error");
     }
 
     /**
@@ -1118,7 +1118,7 @@ public class gvox_h {
     }
 
     public static MethodHandle gvox_adapter_set_user_pointer$MH() {
-        return RuntimeHelper.requireNonNull(constants$4.gvox_adapter_set_user_pointer$MH, "gvox_adapter_set_user_pointer");
+        return __GvoxNativeRuntimeHelper.requireNonNull(constants$4.gvox_adapter_set_user_pointer$MH, "gvox_adapter_set_user_pointer");
     }
 
     /**
@@ -1136,7 +1136,7 @@ public class gvox_h {
     }
 
     public static MethodHandle gvox_adapter_get_user_pointer$MH() {
-        return RuntimeHelper.requireNonNull(constants$4.gvox_adapter_get_user_pointer$MH, "gvox_adapter_get_user_pointer");
+        return __GvoxNativeRuntimeHelper.requireNonNull(constants$4.gvox_adapter_get_user_pointer$MH, "gvox_adapter_get_user_pointer");
     }
 
     /**
@@ -1154,7 +1154,7 @@ public class gvox_h {
     }
 
     public static MethodHandle gvox_input_read$MH() {
-        return RuntimeHelper.requireNonNull(constants$5.gvox_input_read$MH, "gvox_input_read");
+        return __GvoxNativeRuntimeHelper.requireNonNull(constants$5.gvox_input_read$MH, "gvox_input_read");
     }
 
     /**
@@ -1172,7 +1172,7 @@ public class gvox_h {
     }
 
     public static MethodHandle gvox_output_write$MH() {
-        return RuntimeHelper.requireNonNull(constants$5.gvox_output_write$MH, "gvox_output_write");
+        return __GvoxNativeRuntimeHelper.requireNonNull(constants$5.gvox_output_write$MH, "gvox_output_write");
     }
 
     /**
@@ -1190,7 +1190,7 @@ public class gvox_h {
     }
 
     public static MethodHandle gvox_output_reserve$MH() {
-        return RuntimeHelper.requireNonNull(constants$5.gvox_output_reserve$MH, "gvox_output_reserve");
+        return __GvoxNativeRuntimeHelper.requireNonNull(constants$5.gvox_output_reserve$MH, "gvox_output_reserve");
     }
 
     /**
@@ -1208,7 +1208,7 @@ public class gvox_h {
     }
 
     public static MethodHandle gvox_emit_region$MH() {
-        return RuntimeHelper.requireNonNull(constants$5.gvox_emit_region$MH, "gvox_emit_region");
+        return __GvoxNativeRuntimeHelper.requireNonNull(constants$5.gvox_emit_region$MH, "gvox_emit_region");
     }
 
     /**
@@ -1767,7 +1767,7 @@ public class gvox_h {
 
 
     public static MethodHandle gvox_demo_test$MH() {
-        return RuntimeHelper.requireNonNull(RuntimeHelper.downcallHandle("gvox_demo_test", FunctionDescriptor.ofVoid()), "gvox_demo_test");
+        return __GvoxNativeRuntimeHelper.requireNonNull(__GvoxNativeRuntimeHelper.downcallHandle("gvox_demo_test", FunctionDescriptor.ofVoid()), "gvox_demo_test");
     }
 
     public static void gvox_demo_test() {

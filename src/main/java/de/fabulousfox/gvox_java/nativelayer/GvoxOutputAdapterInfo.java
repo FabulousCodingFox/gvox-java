@@ -1,4 +1,4 @@
-package de.fabulousfox.gvox_java.jextract;
+package de.fabulousfox.gvox_java.nativelayer;
 
 import java.lang.foreign.*;
 import java.lang.invoke.MethodHandle;
@@ -47,14 +47,14 @@ public class GvoxOutputAdapterInfo {
             Constants$root.C_LONG_LONG$LAYOUT,
             Constants$root.C_POINTER$LAYOUT
     );
-    static final MethodHandle write_UP$MH = RuntimeHelper.upcallHandle(write.class, "apply", GvoxOutputAdapterInfo.write_UP$FUNC);
+    static final MethodHandle write_UP$MH = __GvoxNativeRuntimeHelper.upcallHandle(write.class, "apply", GvoxOutputAdapterInfo.write_UP$FUNC);
     static final FunctionDescriptor write_DOWN$FUNC = FunctionDescriptor.ofVoid(
             Constants$root.C_POINTER$LAYOUT,
             Constants$root.C_LONG_LONG$LAYOUT,
             Constants$root.C_LONG_LONG$LAYOUT,
             Constants$root.C_POINTER$LAYOUT
     );
-    static final MethodHandle write_DOWN$MH = RuntimeHelper.downcallHandle(
+    static final MethodHandle write_DOWN$MH = __GvoxNativeRuntimeHelper.downcallHandle(
             GvoxOutputAdapterInfo.write_DOWN$FUNC
     );
 
@@ -68,7 +68,7 @@ public class GvoxOutputAdapterInfo {
         void apply(java.lang.foreign.MemorySegment _x0, long _x1, long _x2, java.lang.foreign.MemorySegment _x3);
 
         static MemorySegment allocate(write fi, SegmentScope scope) {
-            return RuntimeHelper.upcallStub(GvoxOutputAdapterInfo.write_UP$MH, fi, GvoxOutputAdapterInfo.write$FUNC, scope);
+            return __GvoxNativeRuntimeHelper.upcallStub(GvoxOutputAdapterInfo.write_UP$MH, fi, GvoxOutputAdapterInfo.write$FUNC, scope);
         }
 
         static write ofAddress(MemorySegment addr, SegmentScope scope) {
@@ -129,12 +129,12 @@ public class GvoxOutputAdapterInfo {
             Constants$root.C_POINTER$LAYOUT,
             Constants$root.C_LONG_LONG$LAYOUT
     );
-    static final MethodHandle reserve_UP$MH = RuntimeHelper.upcallHandle(reserve.class, "apply", GvoxOutputAdapterInfo.reserve_UP$FUNC);
+    static final MethodHandle reserve_UP$MH = __GvoxNativeRuntimeHelper.upcallHandle(reserve.class, "apply", GvoxOutputAdapterInfo.reserve_UP$FUNC);
     static final FunctionDescriptor reserve_DOWN$FUNC = FunctionDescriptor.ofVoid(
             Constants$root.C_POINTER$LAYOUT,
             Constants$root.C_LONG_LONG$LAYOUT
     );
-    static final MethodHandle reserve_DOWN$MH = RuntimeHelper.downcallHandle(
+    static final MethodHandle reserve_DOWN$MH = __GvoxNativeRuntimeHelper.downcallHandle(
             GvoxOutputAdapterInfo.reserve_DOWN$FUNC
     );
 
@@ -148,7 +148,7 @@ public class GvoxOutputAdapterInfo {
         void apply(java.lang.foreign.MemorySegment _x0, long _x1);
 
         static MemorySegment allocate(reserve fi, SegmentScope scope) {
-            return RuntimeHelper.upcallStub(GvoxOutputAdapterInfo.reserve_UP$MH, fi, GvoxOutputAdapterInfo.reserve$FUNC, scope);
+            return __GvoxNativeRuntimeHelper.upcallStub(GvoxOutputAdapterInfo.reserve_UP$MH, fi, GvoxOutputAdapterInfo.reserve$FUNC, scope);
         }
 
         static reserve ofAddress(MemorySegment addr, SegmentScope scope) {
@@ -214,7 +214,7 @@ public class GvoxOutputAdapterInfo {
     }
 
     public static MemorySegment ofAddress(MemorySegment addr, SegmentScope scope) {
-        return RuntimeHelper.asArray(addr, $LAYOUT(), 1, scope);
+        return __GvoxNativeRuntimeHelper.asArray(addr, $LAYOUT(), 1, scope);
     }
 }
 

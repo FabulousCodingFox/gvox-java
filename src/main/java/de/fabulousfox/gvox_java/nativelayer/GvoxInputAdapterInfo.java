@@ -1,4 +1,4 @@
-package de.fabulousfox.gvox_java.jextract;
+package de.fabulousfox.gvox_java.nativelayer;
 
 import java.lang.foreign.*;
 import java.lang.invoke.MethodHandle;
@@ -45,14 +45,14 @@ public class GvoxInputAdapterInfo {
             Constants$root.C_LONG_LONG$LAYOUT,
             Constants$root.C_POINTER$LAYOUT
     );
-    static final MethodHandle read_UP$MH = RuntimeHelper.upcallHandle(read.class, "apply", GvoxInputAdapterInfo.read_UP$FUNC);
+    static final MethodHandle read_UP$MH = __GvoxNativeRuntimeHelper.upcallHandle(read.class, "apply", GvoxInputAdapterInfo.read_UP$FUNC);
     static final FunctionDescriptor read_DOWN$FUNC = FunctionDescriptor.ofVoid(
             Constants$root.C_POINTER$LAYOUT,
             Constants$root.C_LONG_LONG$LAYOUT,
             Constants$root.C_LONG_LONG$LAYOUT,
             Constants$root.C_POINTER$LAYOUT
     );
-    static final MethodHandle read_DOWN$MH = RuntimeHelper.downcallHandle(
+    static final MethodHandle read_DOWN$MH = __GvoxNativeRuntimeHelper.downcallHandle(
             GvoxInputAdapterInfo.read_DOWN$FUNC
     );
 
@@ -66,7 +66,7 @@ public class GvoxInputAdapterInfo {
         void apply(java.lang.foreign.MemorySegment _x0, long _x1, long _x2, java.lang.foreign.MemorySegment _x3);
 
         static MemorySegment allocate(read fi, SegmentScope scope) {
-            return RuntimeHelper.upcallStub(GvoxInputAdapterInfo.read_UP$MH, fi, GvoxInputAdapterInfo.read$FUNC, scope);
+            return __GvoxNativeRuntimeHelper.upcallStub(GvoxInputAdapterInfo.read_UP$MH, fi, GvoxInputAdapterInfo.read$FUNC, scope);
         }
 
         static read ofAddress(MemorySegment addr, SegmentScope scope) {
@@ -132,7 +132,7 @@ public class GvoxInputAdapterInfo {
     }
 
     public static MemorySegment ofAddress(MemorySegment addr, SegmentScope scope) {
-        return RuntimeHelper.asArray(addr, $LAYOUT(), 1, scope);
+        return __GvoxNativeRuntimeHelper.asArray(addr, $LAYOUT(), 1, scope);
     }
 }
 

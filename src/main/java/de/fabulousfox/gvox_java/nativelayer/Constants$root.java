@@ -1,4 +1,4 @@
-package de.fabulousfox.gvox_java.jextract;
+package de.fabulousfox.gvox_java.nativelayer;
 
 import static java.lang.foreign.ValueLayout.*;
 

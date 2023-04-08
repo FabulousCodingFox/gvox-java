@@ -13,8 +13,6 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        Gvox.createCapabilities();
-
         System.out.println("Creating Gvox context");
         GvoxContext gvox_ctx = Gvox.create_context();
 

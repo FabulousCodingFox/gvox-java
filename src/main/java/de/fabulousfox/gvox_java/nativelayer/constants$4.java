@@ -1,4 +1,4 @@
-package de.fabulousfox.gvox_java.jextract;
+package de.fabulousfox.gvox_java.nativelayer;
 
 import java.lang.foreign.FunctionDescriptor;
 import java.lang.foreign.MemoryLayout;
@@ -31,7 +31,7 @@ final class constants$4 {
             Constants$root.C_POINTER$LAYOUT,
             Constants$root.C_LONG$LAYOUT
     );
-    static final MethodHandle gvox_load_region_range$MH = RuntimeHelper.downcallHandle(
+    static final MethodHandle gvox_load_region_range$MH = __GvoxNativeRuntimeHelper.downcallHandle(
             "gvox_load_region_range",
             constants$4.gvox_load_region_range$FUNC
     );
@@ -40,7 +40,7 @@ final class constants$4 {
             Constants$root.C_POINTER$LAYOUT,
             Constants$root.C_POINTER$LAYOUT
     );
-    static final MethodHandle gvox_unload_region_range$MH = RuntimeHelper.downcallHandle(
+    static final MethodHandle gvox_unload_region_range$MH = __GvoxNativeRuntimeHelper.downcallHandle(
             "gvox_unload_region_range",
             constants$4.gvox_unload_region_range$FUNC
     );
@@ -54,7 +54,7 @@ final class constants$4 {
             Constants$root.C_POINTER$LAYOUT,
             Constants$root.C_LONG$LAYOUT
     );
-    static final MethodHandle gvox_sample_region$MH = RuntimeHelper.downcallHandle(
+    static final MethodHandle gvox_sample_region$MH = __GvoxNativeRuntimeHelper.downcallHandle(
             "gvox_sample_region",
             constants$4.gvox_sample_region$FUNC
     );
@@ -63,7 +63,7 @@ final class constants$4 {
             Constants$root.C_LONG$LAYOUT,
             Constants$root.C_POINTER$LAYOUT
     );
-    static final MethodHandle gvox_adapter_push_error$MH = RuntimeHelper.downcallHandle(
+    static final MethodHandle gvox_adapter_push_error$MH = __GvoxNativeRuntimeHelper.downcallHandle(
             "gvox_adapter_push_error",
             constants$4.gvox_adapter_push_error$FUNC
     );
@@ -71,14 +71,14 @@ final class constants$4 {
             Constants$root.C_POINTER$LAYOUT,
             Constants$root.C_POINTER$LAYOUT
     );
-    static final MethodHandle gvox_adapter_set_user_pointer$MH = RuntimeHelper.downcallHandle(
+    static final MethodHandle gvox_adapter_set_user_pointer$MH = __GvoxNativeRuntimeHelper.downcallHandle(
             "gvox_adapter_set_user_pointer",
             constants$4.gvox_adapter_set_user_pointer$FUNC
     );
     static final FunctionDescriptor gvox_adapter_get_user_pointer$FUNC = FunctionDescriptor.of(Constants$root.C_POINTER$LAYOUT,
             Constants$root.C_POINTER$LAYOUT
     );
-    static final MethodHandle gvox_adapter_get_user_pointer$MH = RuntimeHelper.downcallHandle(
+    static final MethodHandle gvox_adapter_get_user_pointer$MH = __GvoxNativeRuntimeHelper.downcallHandle(
             "gvox_adapter_get_user_pointer",
             constants$4.gvox_adapter_get_user_pointer$FUNC
     );

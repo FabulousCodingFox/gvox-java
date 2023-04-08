@@ -1,4 +1,4 @@
-package de.fabulousfox.gvox_java.jextract;
+package de.fabulousfox.gvox_java.nativelayer;
 
 import java.lang.foreign.*;
 import java.lang.invoke.VarHandle;
@@ -156,7 +156,7 @@ public class GvoxRegion {
     }
 
     public static MemorySegment ofAddress(MemorySegment addr, SegmentScope scope) {
-        return RuntimeHelper.asArray(addr, $LAYOUT(), 1, scope);
+        return __GvoxNativeRuntimeHelper.asArray(addr, $LAYOUT(), 1, scope);
     }
 }
 

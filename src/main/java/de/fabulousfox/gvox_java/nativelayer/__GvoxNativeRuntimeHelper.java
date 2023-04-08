@@ -1,4 +1,4 @@
-package de.fabulousfox.gvox_java.jextract;
+package de.fabulousfox.gvox_java.nativelayer;
 
 import java.lang.foreign.*;
 import java.lang.invoke.MethodHandle;
@@ -7,11 +7,11 @@ import java.lang.invoke.MethodType;
 
 import static java.lang.foreign.ValueLayout.*;
 
-public class RuntimeHelper {
+public class __GvoxNativeRuntimeHelper {
     public static Arena arena = Arena.openConfined();
 
     private static final Linker LINKER = Linker.nativeLinker();
-    private static final ClassLoader LOADER = RuntimeHelper.class.getClassLoader();
+    private static final ClassLoader LOADER = __GvoxNativeRuntimeHelper.class.getClassLoader();
     private static final MethodHandles.Lookup MH_LOOKUP = MethodHandles.lookup();
     private static final SymbolLookup SYMBOL_LOOKUP;
     private static final SegmentAllocator THROWING_ALLOCATOR = (x, y) -> {
@@ -32,7 +32,7 @@ public class RuntimeHelper {
     }
 
     // Suppresses default constructor, ensuring non-instantiability.
-    private RuntimeHelper() {
+    private __GvoxNativeRuntimeHelper() {
     }
 
     static <T> T requireNonNull(T obj, String symbolName) {

@@ -1,4 +1,4 @@
-package de.fabulousfox.gvox_java.jextract;
+package de.fabulousfox.gvox_java.nativelayer;
 
 import java.lang.foreign.FunctionDescriptor;
 import java.lang.foreign.MemorySegment;
@@ -16,7 +16,7 @@ final class constants$5 {
             Constants$root.C_LONG_LONG$LAYOUT,
             Constants$root.C_POINTER$LAYOUT
     );
-    static final MethodHandle gvox_input_read$MH = RuntimeHelper.downcallHandle(
+    static final MethodHandle gvox_input_read$MH = __GvoxNativeRuntimeHelper.downcallHandle(
             "gvox_input_read",
             constants$5.gvox_input_read$FUNC
     );
@@ -26,7 +26,7 @@ final class constants$5 {
             Constants$root.C_LONG_LONG$LAYOUT,
             Constants$root.C_POINTER$LAYOUT
     );
-    static final MethodHandle gvox_output_write$MH = RuntimeHelper.downcallHandle(
+    static final MethodHandle gvox_output_write$MH = __GvoxNativeRuntimeHelper.downcallHandle(
             "gvox_output_write",
             constants$5.gvox_output_write$FUNC
     );
@@ -34,7 +34,7 @@ final class constants$5 {
             Constants$root.C_POINTER$LAYOUT,
             Constants$root.C_LONG_LONG$LAYOUT
     );
-    static final MethodHandle gvox_output_reserve$MH = RuntimeHelper.downcallHandle(
+    static final MethodHandle gvox_output_reserve$MH = __GvoxNativeRuntimeHelper.downcallHandle(
             "gvox_output_reserve",
             constants$5.gvox_output_reserve$FUNC
     );
@@ -42,7 +42,7 @@ final class constants$5 {
             Constants$root.C_POINTER$LAYOUT,
             Constants$root.C_POINTER$LAYOUT
     );
-    static final MethodHandle gvox_emit_region$MH = RuntimeHelper.downcallHandle(
+    static final MethodHandle gvox_emit_region$MH = __GvoxNativeRuntimeHelper.downcallHandle(
             "gvox_emit_region",
             constants$5.gvox_emit_region$FUNC
     );

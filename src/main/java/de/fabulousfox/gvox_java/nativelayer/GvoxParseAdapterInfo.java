@@ -1,4 +1,4 @@
-package de.fabulousfox.gvox_java.jextract;
+package de.fabulousfox.gvox_java.nativelayer;
 
 import java.lang.foreign.*;
 import java.lang.invoke.MethodHandle;
@@ -51,11 +51,11 @@ public class GvoxParseAdapterInfo {
     static final FunctionDescriptor query_details_UP$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
             Constants$root.C_LONG$LAYOUT.withName("preferred_blit_mode")
     ));
-    static final MethodHandle query_details_UP$MH = RuntimeHelper.upcallHandle(query_details.class, "apply", GvoxParseAdapterInfo.query_details_UP$FUNC);
+    static final MethodHandle query_details_UP$MH = __GvoxNativeRuntimeHelper.upcallHandle(query_details.class, "apply", GvoxParseAdapterInfo.query_details_UP$FUNC);
     static final FunctionDescriptor query_details_DOWN$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
             Constants$root.C_LONG$LAYOUT.withName("preferred_blit_mode")
     ));
-    static final MethodHandle query_details_DOWN$MH = RuntimeHelper.downcallHandle(
+    static final MethodHandle query_details_DOWN$MH = __GvoxNativeRuntimeHelper.downcallHandle(
             GvoxParseAdapterInfo.query_details_DOWN$FUNC
     );
 
@@ -69,7 +69,7 @@ public class GvoxParseAdapterInfo {
         java.lang.foreign.MemorySegment apply();
 
         static MemorySegment allocate(query_details fi, SegmentScope scope) {
-            return RuntimeHelper.upcallStub(GvoxParseAdapterInfo.query_details_UP$MH, fi, GvoxParseAdapterInfo.query_details$FUNC, scope);
+            return __GvoxNativeRuntimeHelper.upcallStub(GvoxParseAdapterInfo.query_details_UP$MH, fi, GvoxParseAdapterInfo.query_details$FUNC, scope);
         }
 
         static query_details ofAddress(MemorySegment addr, SegmentScope scope) {
@@ -152,7 +152,7 @@ public class GvoxParseAdapterInfo {
             Constants$root.C_POINTER$LAYOUT,
             Constants$root.C_POINTER$LAYOUT
     );
-    static final MethodHandle query_parsable_range_UP$MH = RuntimeHelper.upcallHandle(query_parsable_range.class, "apply", GvoxParseAdapterInfo.query_parsable_range_UP$FUNC);
+    static final MethodHandle query_parsable_range_UP$MH = __GvoxNativeRuntimeHelper.upcallHandle(query_parsable_range.class, "apply", GvoxParseAdapterInfo.query_parsable_range_UP$FUNC);
     static final FunctionDescriptor query_parsable_range_DOWN$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
                     MemoryLayout.structLayout(
                             Constants$root.C_LONG$LAYOUT.withName("x"),
@@ -168,7 +168,7 @@ public class GvoxParseAdapterInfo {
             Constants$root.C_POINTER$LAYOUT,
             Constants$root.C_POINTER$LAYOUT
     );
-    static final MethodHandle query_parsable_range_DOWN$MH = RuntimeHelper.downcallHandle(
+    static final MethodHandle query_parsable_range_DOWN$MH = __GvoxNativeRuntimeHelper.downcallHandle(
             GvoxParseAdapterInfo.query_parsable_range_DOWN$FUNC
     );
 
@@ -182,7 +182,7 @@ public class GvoxParseAdapterInfo {
         java.lang.foreign.MemorySegment apply(java.lang.foreign.MemorySegment _x0, java.lang.foreign.MemorySegment _x1);
 
         static MemorySegment allocate(query_parsable_range fi, SegmentScope scope) {
-            return RuntimeHelper.upcallStub(GvoxParseAdapterInfo.query_parsable_range_UP$MH, fi, GvoxParseAdapterInfo.query_parsable_range$FUNC, scope);
+            return __GvoxNativeRuntimeHelper.upcallStub(GvoxParseAdapterInfo.query_parsable_range_UP$MH, fi, GvoxParseAdapterInfo.query_parsable_range$FUNC, scope);
         }
 
         static query_parsable_range ofAddress(MemorySegment addr, SegmentScope scope) {
@@ -257,7 +257,7 @@ public class GvoxParseAdapterInfo {
             Constants$root.C_POINTER$LAYOUT,
             Constants$root.C_LONG$LAYOUT
     );
-    static final MethodHandle sample_region_UP$MH = RuntimeHelper.upcallHandle(sample_region.class, "apply", GvoxParseAdapterInfo.sample_region_UP$FUNC);
+    static final MethodHandle sample_region_UP$MH = __GvoxNativeRuntimeHelper.upcallHandle(sample_region.class, "apply", GvoxParseAdapterInfo.sample_region_UP$FUNC);
     static final FunctionDescriptor sample_region_DOWN$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
                     Constants$root.C_LONG$LAYOUT.withName("data"),
                     Constants$root.C_CHAR$LAYOUT.withName("is_present"),
@@ -269,7 +269,7 @@ public class GvoxParseAdapterInfo {
             Constants$root.C_POINTER$LAYOUT,
             Constants$root.C_LONG$LAYOUT
     );
-    static final MethodHandle sample_region_DOWN$MH = RuntimeHelper.downcallHandle(
+    static final MethodHandle sample_region_DOWN$MH = __GvoxNativeRuntimeHelper.downcallHandle(
             GvoxParseAdapterInfo.sample_region_DOWN$FUNC
     );
 
@@ -283,7 +283,7 @@ public class GvoxParseAdapterInfo {
         java.lang.foreign.MemorySegment apply(java.lang.foreign.MemorySegment _x0, java.lang.foreign.MemorySegment _x1, java.lang.foreign.MemorySegment _x2, java.lang.foreign.MemorySegment _x3, int _x4);
 
         static MemorySegment allocate(sample_region fi, SegmentScope scope) {
-            return RuntimeHelper.upcallStub(GvoxParseAdapterInfo.sample_region_UP$MH, fi, GvoxParseAdapterInfo.sample_region$FUNC, scope);
+            return __GvoxNativeRuntimeHelper.upcallStub(GvoxParseAdapterInfo.sample_region_UP$MH, fi, GvoxParseAdapterInfo.sample_region$FUNC, scope);
         }
 
         static sample_region ofAddress(MemorySegment addr, SegmentScope scope) {
@@ -348,14 +348,14 @@ public class GvoxParseAdapterInfo {
             Constants$root.C_POINTER$LAYOUT,
             Constants$root.C_LONG$LAYOUT
     );
-    static final MethodHandle query_region_flags_UP$MH = RuntimeHelper.upcallHandle(query_region_flags.class, "apply", GvoxParseAdapterInfo.query_region_flags_UP$FUNC);
+    static final MethodHandle query_region_flags_UP$MH = __GvoxNativeRuntimeHelper.upcallHandle(query_region_flags.class, "apply", GvoxParseAdapterInfo.query_region_flags_UP$FUNC);
     static final FunctionDescriptor query_region_flags_DOWN$FUNC = FunctionDescriptor.of(Constants$root.C_LONG$LAYOUT,
             Constants$root.C_POINTER$LAYOUT,
             Constants$root.C_POINTER$LAYOUT,
             Constants$root.C_POINTER$LAYOUT,
             Constants$root.C_LONG$LAYOUT
     );
-    static final MethodHandle query_region_flags_DOWN$MH = RuntimeHelper.downcallHandle(
+    static final MethodHandle query_region_flags_DOWN$MH = __GvoxNativeRuntimeHelper.downcallHandle(
             GvoxParseAdapterInfo.query_region_flags_DOWN$FUNC
     );
 
@@ -369,7 +369,7 @@ public class GvoxParseAdapterInfo {
         int apply(java.lang.foreign.MemorySegment _x0, java.lang.foreign.MemorySegment _x1, java.lang.foreign.MemorySegment _x2, int _x3);
 
         static MemorySegment allocate(query_region_flags fi, SegmentScope scope) {
-            return RuntimeHelper.upcallStub(GvoxParseAdapterInfo.query_region_flags_UP$MH, fi, GvoxParseAdapterInfo.query_region_flags$FUNC, scope);
+            return __GvoxNativeRuntimeHelper.upcallStub(GvoxParseAdapterInfo.query_region_flags_UP$MH, fi, GvoxParseAdapterInfo.query_region_flags$FUNC, scope);
         }
 
         static query_region_flags ofAddress(MemorySegment addr, SegmentScope scope) {
@@ -466,7 +466,7 @@ public class GvoxParseAdapterInfo {
             Constants$root.C_POINTER$LAYOUT,
             Constants$root.C_LONG$LAYOUT
     );
-    static final MethodHandle load_region_UP$MH = RuntimeHelper.upcallHandle(load_region.class, "apply", GvoxParseAdapterInfo.load_region_UP$FUNC);
+    static final MethodHandle load_region_UP$MH = __GvoxNativeRuntimeHelper.upcallHandle(load_region.class, "apply", GvoxParseAdapterInfo.load_region_UP$FUNC);
     static final FunctionDescriptor load_region_DOWN$FUNC = FunctionDescriptor.of(MemoryLayout.structLayout(
                     MemoryLayout.structLayout(
                             MemoryLayout.structLayout(
@@ -489,7 +489,7 @@ public class GvoxParseAdapterInfo {
             Constants$root.C_POINTER$LAYOUT,
             Constants$root.C_LONG$LAYOUT
     );
-    static final MethodHandle load_region_DOWN$MH = RuntimeHelper.downcallHandle(
+    static final MethodHandle load_region_DOWN$MH = __GvoxNativeRuntimeHelper.downcallHandle(
             GvoxParseAdapterInfo.load_region_DOWN$FUNC
     );
 
@@ -503,7 +503,7 @@ public class GvoxParseAdapterInfo {
         java.lang.foreign.MemorySegment apply(java.lang.foreign.MemorySegment _x0, java.lang.foreign.MemorySegment _x1, java.lang.foreign.MemorySegment _x2, int _x3);
 
         static MemorySegment allocate(load_region fi, SegmentScope scope) {
-            return RuntimeHelper.upcallStub(GvoxParseAdapterInfo.load_region_UP$MH, fi, GvoxParseAdapterInfo.load_region$FUNC, scope);
+            return __GvoxNativeRuntimeHelper.upcallStub(GvoxParseAdapterInfo.load_region_UP$MH, fi, GvoxParseAdapterInfo.load_region$FUNC, scope);
         }
 
         static load_region ofAddress(MemorySegment addr, SegmentScope scope) {
@@ -566,13 +566,13 @@ public class GvoxParseAdapterInfo {
             Constants$root.C_POINTER$LAYOUT,
             Constants$root.C_POINTER$LAYOUT
     );
-    static final MethodHandle unload_region_UP$MH = RuntimeHelper.upcallHandle(unload_region.class, "apply", GvoxParseAdapterInfo.unload_region_UP$FUNC);
+    static final MethodHandle unload_region_UP$MH = __GvoxNativeRuntimeHelper.upcallHandle(unload_region.class, "apply", GvoxParseAdapterInfo.unload_region_UP$FUNC);
     static final FunctionDescriptor unload_region_DOWN$FUNC = FunctionDescriptor.ofVoid(
             Constants$root.C_POINTER$LAYOUT,
             Constants$root.C_POINTER$LAYOUT,
             Constants$root.C_POINTER$LAYOUT
     );
-    static final MethodHandle unload_region_DOWN$MH = RuntimeHelper.downcallHandle(
+    static final MethodHandle unload_region_DOWN$MH = __GvoxNativeRuntimeHelper.downcallHandle(
             GvoxParseAdapterInfo.unload_region_DOWN$FUNC
     );
 
@@ -586,7 +586,7 @@ public class GvoxParseAdapterInfo {
         void apply(java.lang.foreign.MemorySegment _x0, java.lang.foreign.MemorySegment _x1, java.lang.foreign.MemorySegment _x2);
 
         static MemorySegment allocate(unload_region fi, SegmentScope scope) {
-            return RuntimeHelper.upcallStub(GvoxParseAdapterInfo.unload_region_UP$MH, fi, GvoxParseAdapterInfo.unload_region$FUNC, scope);
+            return __GvoxNativeRuntimeHelper.upcallStub(GvoxParseAdapterInfo.unload_region_UP$MH, fi, GvoxParseAdapterInfo.unload_region$FUNC, scope);
         }
 
         static unload_region ofAddress(MemorySegment addr, SegmentScope scope) {
@@ -651,14 +651,14 @@ public class GvoxParseAdapterInfo {
             Constants$root.C_POINTER$LAYOUT,
             Constants$root.C_LONG$LAYOUT
     );
-    static final MethodHandle parse_region_UP$MH = RuntimeHelper.upcallHandle(parse_region.class, "apply", GvoxParseAdapterInfo.parse_region_UP$FUNC);
+    static final MethodHandle parse_region_UP$MH = __GvoxNativeRuntimeHelper.upcallHandle(parse_region.class, "apply", GvoxParseAdapterInfo.parse_region_UP$FUNC);
     static final FunctionDescriptor parse_region_DOWN$FUNC = FunctionDescriptor.ofVoid(
             Constants$root.C_POINTER$LAYOUT,
             Constants$root.C_POINTER$LAYOUT,
             Constants$root.C_POINTER$LAYOUT,
             Constants$root.C_LONG$LAYOUT
     );
-    static final MethodHandle parse_region_DOWN$MH = RuntimeHelper.downcallHandle(
+    static final MethodHandle parse_region_DOWN$MH = __GvoxNativeRuntimeHelper.downcallHandle(
             GvoxParseAdapterInfo.parse_region_DOWN$FUNC
     );
 
@@ -672,7 +672,7 @@ public class GvoxParseAdapterInfo {
         void apply(java.lang.foreign.MemorySegment _x0, java.lang.foreign.MemorySegment _x1, java.lang.foreign.MemorySegment _x2, int _x3);
 
         static MemorySegment allocate(parse_region fi, SegmentScope scope) {
-            return RuntimeHelper.upcallStub(GvoxParseAdapterInfo.parse_region_UP$MH, fi, GvoxParseAdapterInfo.parse_region$FUNC, scope);
+            return __GvoxNativeRuntimeHelper.upcallStub(GvoxParseAdapterInfo.parse_region_UP$MH, fi, GvoxParseAdapterInfo.parse_region$FUNC, scope);
         }
 
         static parse_region ofAddress(MemorySegment addr, SegmentScope scope) {
@@ -738,7 +738,7 @@ public class GvoxParseAdapterInfo {
     }
 
     public static MemorySegment ofAddress(MemorySegment addr, SegmentScope scope) {
-        return RuntimeHelper.asArray(addr, $LAYOUT(), 1, scope);
+        return __GvoxNativeRuntimeHelper.asArray(addr, $LAYOUT(), 1, scope);
     }
 }
 

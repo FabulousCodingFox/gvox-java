@@ -1,4 +1,4 @@
-package de.fabulousfox.gvox_java.jextract;
+package de.fabulousfox.gvox_java.nativelayer;
 
 import java.lang.foreign.*;
 import java.lang.invoke.MethodHandle;
@@ -71,12 +71,12 @@ public class GvoxAdapterBaseInfo {
             Constants$root.C_POINTER$LAYOUT,
             Constants$root.C_POINTER$LAYOUT
     );
-    static final MethodHandle create_UP$MH = RuntimeHelper.upcallHandle(create.class, "apply", GvoxAdapterBaseInfo.create_UP$FUNC);
+    static final MethodHandle create_UP$MH = __GvoxNativeRuntimeHelper.upcallHandle(create.class, "apply", GvoxAdapterBaseInfo.create_UP$FUNC);
     static final FunctionDescriptor create_DOWN$FUNC = FunctionDescriptor.ofVoid(
             Constants$root.C_POINTER$LAYOUT,
             Constants$root.C_POINTER$LAYOUT
     );
-    static final MethodHandle create_DOWN$MH = RuntimeHelper.downcallHandle(
+    static final MethodHandle create_DOWN$MH = __GvoxNativeRuntimeHelper.downcallHandle(
             GvoxAdapterBaseInfo.create_DOWN$FUNC
     );
 
@@ -90,7 +90,7 @@ public class GvoxAdapterBaseInfo {
         void apply(java.lang.foreign.MemorySegment _x0, java.lang.foreign.MemorySegment _x1);
 
         static MemorySegment allocate(create fi, SegmentScope scope) {
-            return RuntimeHelper.upcallStub(GvoxAdapterBaseInfo.create_UP$MH, fi, GvoxAdapterBaseInfo.create$FUNC, scope);
+            return __GvoxNativeRuntimeHelper.upcallStub(GvoxAdapterBaseInfo.create_UP$MH, fi, GvoxAdapterBaseInfo.create$FUNC, scope);
         }
 
         static create ofAddress(MemorySegment addr, SegmentScope scope) {
@@ -149,11 +149,11 @@ public class GvoxAdapterBaseInfo {
     static final FunctionDescriptor destroy_UP$FUNC = FunctionDescriptor.ofVoid(
             Constants$root.C_POINTER$LAYOUT
     );
-    static final MethodHandle destroy_UP$MH = RuntimeHelper.upcallHandle(destroy.class, "apply", GvoxAdapterBaseInfo.destroy_UP$FUNC);
+    static final MethodHandle destroy_UP$MH = __GvoxNativeRuntimeHelper.upcallHandle(destroy.class, "apply", GvoxAdapterBaseInfo.destroy_UP$FUNC);
     static final FunctionDescriptor destroy_DOWN$FUNC = FunctionDescriptor.ofVoid(
             Constants$root.C_POINTER$LAYOUT
     );
-    static final MethodHandle destroy_DOWN$MH = RuntimeHelper.downcallHandle(
+    static final MethodHandle destroy_DOWN$MH = __GvoxNativeRuntimeHelper.downcallHandle(
             GvoxAdapterBaseInfo.destroy_DOWN$FUNC
     );
 
@@ -167,7 +167,7 @@ public class GvoxAdapterBaseInfo {
         void apply(java.lang.foreign.MemorySegment _x0);
 
         static MemorySegment allocate(destroy fi, SegmentScope scope) {
-            return RuntimeHelper.upcallStub(GvoxAdapterBaseInfo.destroy_UP$MH, fi, GvoxAdapterBaseInfo.destroy$FUNC, scope);
+            return __GvoxNativeRuntimeHelper.upcallStub(GvoxAdapterBaseInfo.destroy_UP$MH, fi, GvoxAdapterBaseInfo.destroy$FUNC, scope);
         }
 
         static destroy ofAddress(MemorySegment addr, SegmentScope scope) {
@@ -232,14 +232,14 @@ public class GvoxAdapterBaseInfo {
             Constants$root.C_POINTER$LAYOUT,
             Constants$root.C_LONG$LAYOUT
     );
-    static final MethodHandle blit_begin_UP$MH = RuntimeHelper.upcallHandle(blit_begin.class, "apply", GvoxAdapterBaseInfo.blit_begin_UP$FUNC);
+    static final MethodHandle blit_begin_UP$MH = __GvoxNativeRuntimeHelper.upcallHandle(blit_begin.class, "apply", GvoxAdapterBaseInfo.blit_begin_UP$FUNC);
     static final FunctionDescriptor blit_begin_DOWN$FUNC = FunctionDescriptor.ofVoid(
             Constants$root.C_POINTER$LAYOUT,
             Constants$root.C_POINTER$LAYOUT,
             Constants$root.C_POINTER$LAYOUT,
             Constants$root.C_LONG$LAYOUT
     );
-    static final MethodHandle blit_begin_DOWN$MH = RuntimeHelper.downcallHandle(
+    static final MethodHandle blit_begin_DOWN$MH = __GvoxNativeRuntimeHelper.downcallHandle(
             GvoxAdapterBaseInfo.blit_begin_DOWN$FUNC
     );
 
@@ -253,7 +253,7 @@ public class GvoxAdapterBaseInfo {
         void apply(java.lang.foreign.MemorySegment _x0, java.lang.foreign.MemorySegment _x1, java.lang.foreign.MemorySegment _x2, int _x3);
 
         static MemorySegment allocate(blit_begin fi, SegmentScope scope) {
-            return RuntimeHelper.upcallStub(GvoxAdapterBaseInfo.blit_begin_UP$MH, fi, GvoxAdapterBaseInfo.blit_begin$FUNC, scope);
+            return __GvoxNativeRuntimeHelper.upcallStub(GvoxAdapterBaseInfo.blit_begin_UP$MH, fi, GvoxAdapterBaseInfo.blit_begin$FUNC, scope);
         }
 
         static blit_begin ofAddress(MemorySegment addr, SegmentScope scope) {
@@ -314,12 +314,12 @@ public class GvoxAdapterBaseInfo {
             Constants$root.C_POINTER$LAYOUT,
             Constants$root.C_POINTER$LAYOUT
     );
-    static final MethodHandle blit_end_UP$MH = RuntimeHelper.upcallHandle(blit_end.class, "apply", GvoxAdapterBaseInfo.blit_end_UP$FUNC);
+    static final MethodHandle blit_end_UP$MH = __GvoxNativeRuntimeHelper.upcallHandle(blit_end.class, "apply", GvoxAdapterBaseInfo.blit_end_UP$FUNC);
     static final FunctionDescriptor blit_end_DOWN$FUNC = FunctionDescriptor.ofVoid(
             Constants$root.C_POINTER$LAYOUT,
             Constants$root.C_POINTER$LAYOUT
     );
-    static final MethodHandle blit_end_DOWN$MH = RuntimeHelper.downcallHandle(
+    static final MethodHandle blit_end_DOWN$MH = __GvoxNativeRuntimeHelper.downcallHandle(
             GvoxAdapterBaseInfo.blit_end_DOWN$FUNC
     );
 
@@ -333,7 +333,7 @@ public class GvoxAdapterBaseInfo {
         void apply(java.lang.foreign.MemorySegment _x0, java.lang.foreign.MemorySegment _x1);
 
         static MemorySegment allocate(blit_end fi, SegmentScope scope) {
-            return RuntimeHelper.upcallStub(GvoxAdapterBaseInfo.blit_end_UP$MH, fi, GvoxAdapterBaseInfo.blit_end$FUNC, scope);
+            return __GvoxNativeRuntimeHelper.upcallStub(GvoxAdapterBaseInfo.blit_end_UP$MH, fi, GvoxAdapterBaseInfo.blit_end$FUNC, scope);
         }
 
         static blit_end ofAddress(MemorySegment addr, SegmentScope scope) {
@@ -399,7 +399,7 @@ public class GvoxAdapterBaseInfo {
     }
 
     public static MemorySegment ofAddress(MemorySegment addr, SegmentScope scope) {
-        return RuntimeHelper.asArray(addr, $LAYOUT(), 1, scope);
+        return __GvoxNativeRuntimeHelper.asArray(addr, $LAYOUT(), 1, scope);
     }
 }
 

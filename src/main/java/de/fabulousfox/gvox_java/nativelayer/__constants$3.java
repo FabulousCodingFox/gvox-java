@@ -1,4 +1,4 @@
-package de.fabulousfox.gvox_java.jextract;
+package de.fabulousfox.gvox_java.nativelayer;
 
 import java.lang.foreign.FunctionDescriptor;
 import java.lang.invoke.MethodHandle;
@@ -14,14 +14,14 @@ final class __constants$3 {
             Constants$root.C_POINTER$LAYOUT,
             Constants$root.C_POINTER$LAYOUT
     );
-    static final MethodHandle gvox_create_adapter_context$MH = RuntimeHelper.downcallHandle(
+    static final MethodHandle gvox_create_adapter_context$MH = __GvoxNativeRuntimeHelper.downcallHandle(
             "gvox_create_adapter_context",
             __constants$3.gvox_create_adapter_context$FUNC
     );
     static final FunctionDescriptor gvox_destroy_adapter_context$FUNC = FunctionDescriptor.ofVoid(
             Constants$root.C_POINTER$LAYOUT
     );
-    static final MethodHandle gvox_destroy_adapter_context$MH = RuntimeHelper.downcallHandle(
+    static final MethodHandle gvox_destroy_adapter_context$MH = __GvoxNativeRuntimeHelper.downcallHandle(
             "gvox_destroy_adapter_context",
             __constants$3.gvox_destroy_adapter_context$FUNC
     );
@@ -33,7 +33,7 @@ final class __constants$3 {
             Constants$root.C_POINTER$LAYOUT,
             Constants$root.C_LONG$LAYOUT
     );
-    static final MethodHandle gvox_blit_region$MH = RuntimeHelper.downcallHandle(
+    static final MethodHandle gvox_blit_region$MH = __GvoxNativeRuntimeHelper.downcallHandle(
             "gvox_blit_region",
             __constants$3.gvox_blit_region$FUNC
     );
@@ -45,7 +45,7 @@ final class __constants$3 {
             Constants$root.C_POINTER$LAYOUT,
             Constants$root.C_LONG$LAYOUT
     );
-    static final MethodHandle gvox_blit_region_parse_driven$MH = RuntimeHelper.downcallHandle(
+    static final MethodHandle gvox_blit_region_parse_driven$MH = __GvoxNativeRuntimeHelper.downcallHandle(
             "gvox_blit_region_parse_driven",
             __constants$3.gvox_blit_region_parse_driven$FUNC
     );
@@ -57,7 +57,7 @@ final class __constants$3 {
             Constants$root.C_POINTER$LAYOUT,
             Constants$root.C_LONG$LAYOUT
     );
-    static final MethodHandle gvox_blit_region_serialize_driven$MH = RuntimeHelper.downcallHandle(
+    static final MethodHandle gvox_blit_region_serialize_driven$MH = __GvoxNativeRuntimeHelper.downcallHandle(
             "gvox_blit_region_serialize_driven",
             __constants$3.gvox_blit_region_serialize_driven$FUNC
     );
@@ -66,7 +66,7 @@ final class __constants$3 {
             Constants$root.C_POINTER$LAYOUT,
             Constants$root.C_LONG$LAYOUT
     );
-    static final MethodHandle gvox_query_region_flags$MH = RuntimeHelper.downcallHandle(
+    static final MethodHandle gvox_query_region_flags$MH = __GvoxNativeRuntimeHelper.downcallHandle(
             "gvox_query_region_flags",
             __constants$3.gvox_query_region_flags$FUNC
     );

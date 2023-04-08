@@ -1,4 +1,4 @@
-package de.fabulousfox.gvox_java.jextract;
+package de.fabulousfox.gvox_java.nativelayer;
 
 import java.lang.foreign.*;
 import java.lang.invoke.MethodHandle;
@@ -47,14 +47,14 @@ public class GvoxSerializeAdapterInfo {
             Constants$root.C_POINTER$LAYOUT,
             Constants$root.C_LONG$LAYOUT
     );
-    static final MethodHandle serialize_region_UP$MH = RuntimeHelper.upcallHandle(serialize_region.class, "apply", GvoxSerializeAdapterInfo.serialize_region_UP$FUNC);
+    static final MethodHandle serialize_region_UP$MH = __GvoxNativeRuntimeHelper.upcallHandle(serialize_region.class, "apply", GvoxSerializeAdapterInfo.serialize_region_UP$FUNC);
     static final FunctionDescriptor serialize_region_DOWN$FUNC = FunctionDescriptor.ofVoid(
             Constants$root.C_POINTER$LAYOUT,
             Constants$root.C_POINTER$LAYOUT,
             Constants$root.C_POINTER$LAYOUT,
             Constants$root.C_LONG$LAYOUT
     );
-    static final MethodHandle serialize_region_DOWN$MH = RuntimeHelper.downcallHandle(
+    static final MethodHandle serialize_region_DOWN$MH = __GvoxNativeRuntimeHelper.downcallHandle(
             GvoxSerializeAdapterInfo.serialize_region_DOWN$FUNC
     );
 
@@ -68,7 +68,7 @@ public class GvoxSerializeAdapterInfo {
         void apply(java.lang.foreign.MemorySegment _x0, java.lang.foreign.MemorySegment _x1, java.lang.foreign.MemorySegment _x2, int _x3);
 
         static MemorySegment allocate(serialize_region fi, SegmentScope scope) {
-            return RuntimeHelper.upcallStub(GvoxSerializeAdapterInfo.serialize_region_UP$MH, fi, GvoxSerializeAdapterInfo.serialize_region$FUNC, scope);
+            return __GvoxNativeRuntimeHelper.upcallStub(GvoxSerializeAdapterInfo.serialize_region_UP$MH, fi, GvoxSerializeAdapterInfo.serialize_region$FUNC, scope);
         }
 
         static serialize_region ofAddress(MemorySegment addr, SegmentScope scope) {
@@ -131,13 +131,13 @@ public class GvoxSerializeAdapterInfo {
             Constants$root.C_POINTER$LAYOUT,
             Constants$root.C_POINTER$LAYOUT
     );
-    static final MethodHandle receive_region_UP$MH = RuntimeHelper.upcallHandle(receive_region.class, "apply", GvoxSerializeAdapterInfo.receive_region_UP$FUNC);
+    static final MethodHandle receive_region_UP$MH = __GvoxNativeRuntimeHelper.upcallHandle(receive_region.class, "apply", GvoxSerializeAdapterInfo.receive_region_UP$FUNC);
     static final FunctionDescriptor receive_region_DOWN$FUNC = FunctionDescriptor.ofVoid(
             Constants$root.C_POINTER$LAYOUT,
             Constants$root.C_POINTER$LAYOUT,
             Constants$root.C_POINTER$LAYOUT
     );
-    static final MethodHandle receive_region_DOWN$MH = RuntimeHelper.downcallHandle(
+    static final MethodHandle receive_region_DOWN$MH = __GvoxNativeRuntimeHelper.downcallHandle(
             GvoxSerializeAdapterInfo.receive_region_DOWN$FUNC
     );
 
@@ -151,7 +151,7 @@ public class GvoxSerializeAdapterInfo {
         void apply(java.lang.foreign.MemorySegment _x0, java.lang.foreign.MemorySegment _x1, java.lang.foreign.MemorySegment _x2);
 
         static MemorySegment allocate(receive_region fi, SegmentScope scope) {
-            return RuntimeHelper.upcallStub(GvoxSerializeAdapterInfo.receive_region_UP$MH, fi, GvoxSerializeAdapterInfo.receive_region$FUNC, scope);
+            return __GvoxNativeRuntimeHelper.upcallStub(GvoxSerializeAdapterInfo.receive_region_UP$MH, fi, GvoxSerializeAdapterInfo.receive_region$FUNC, scope);
         }
 
         static receive_region ofAddress(MemorySegment addr, SegmentScope scope) {
@@ -217,7 +217,7 @@ public class GvoxSerializeAdapterInfo {
     }
 
     public static MemorySegment ofAddress(MemorySegment addr, SegmentScope scope) {
-        return RuntimeHelper.asArray(addr, $LAYOUT(), 1, scope);
+        return __GvoxNativeRuntimeHelper.asArray(addr, $LAYOUT(), 1, scope);
     }
 }
 
