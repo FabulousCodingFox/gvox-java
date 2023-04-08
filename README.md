@@ -5,6 +5,9 @@
 <br>
 Java bindings for the GVOX voxel data library (https://github.com/GabeRundlett/gvox)
 
+# IMPORTANT!
+This project is not finished. The adapter api is not implemented yet, as well as several features of the consumer api
+
 ## Installation (Maven)
 1. [Authenticate GitHub Packages](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry#authenticating-to-github-packages)
 2. Add the package dependencies to the dependencies element of your project pom.xml file
