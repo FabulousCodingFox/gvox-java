@@ -15,7 +15,7 @@ This project is not finished. The adapter api is not implemented yet, as well as
 ## Usage
 Check the [gvox wiki](https://github.com/GabeRundlett/gvox/wiki) for more detailed instructions. Here i only provide the java equivalent of the demo snippet
 ```java
-GvoxContext gvox_ctx = Gvox.create_context();
+GvoxContext gvox_ctx = GVOX.create_context();
 
 GvoxFileInputAdapterConfig i_config = new GvoxFileInputAdapterConfig() {{
     filepath = "C:/Users/fabif/IdeaProjects/VoxelTracing/src/main/resources/models/menger.vox";
@@ -26,11 +26,11 @@ GvoxColoredTextSerializeAdapterConfig s_config = new GvoxColoredTextSerializeAda
     non_color_max_value = 255;
 }};
 
-System.out.println("Creating Gvox adapter contexts");
-GvoxAdapterContext input_ctx = Gvox.create_adapter_context(gvox_ctx, Gvox.get_input_adapter(gvox_ctx, "file"), i_config);
-GvoxAdapterContext output_ctx = Gvox.create_adapter_context(gvox_ctx, Gvox.get_output_adapter(gvox_ctx, "stdout"), null);
-GvoxAdapterContext parse_ctx = Gvox.create_adapter_context(gvox_ctx, Gvox.get_parse_adapter(gvox_ctx, "magicavoxel"), null);
-GvoxAdapterContext serialize_ctx = Gvox.create_adapter_context(gvox_ctx, Gvox.get_serialize_adapter(gvox_ctx, "colored_text"), s_config);
+System.out.println("Creating GVOX adapter contexts");
+GvoxAdapterContext input_ctx = GVOX.create_adapter_context(gvox_ctx, Gvox.get_input_adapter(gvox_ctx, "file"), i_config);
+GvoxAdapterContext output_ctx = GVOX.create_adapter_context(gvox_ctx, Gvox.get_output_adapter(gvox_ctx, "stdout"), null);
+GvoxAdapterContext parse_ctx = GVOX.create_adapter_context(gvox_ctx, Gvox.get_parse_adapter(gvox_ctx, "magicavoxel"), null);
+GvoxAdapterContext serialize_ctx = GVOX.create_adapter_context(gvox_ctx, Gvox.get_serialize_adapter(gvox_ctx, "colored_text"), s_config);
 
 GvoxRegionRange range = new GvoxRegionRange(
         new GvoxOffset3D(0, 0, 0),
@@ -38,7 +38,7 @@ GvoxRegionRange range = new GvoxRegionRange(
 );
 
 System.out.println("Blitting region");
-Gvox.blit_region(input_ctx, output_ctx, parse_ctx, serialize_ctx, range, List.of(
+GVOX.blit_region(input_ctx, output_ctx, parse_ctx, serialize_ctx, range, List.of(
         GvoxChannelBit.COLOR,
         GvoxChannelBit.MATERIAL_ID,
         GvoxChannelBit.ROUGHNESS,
@@ -47,12 +47,12 @@ Gvox.blit_region(input_ctx, output_ctx, parse_ctx, serialize_ctx, range, List.of
 ));
 
 System.out.println("Cleaning up");
-Gvox.destroy_adapter_context(input_ctx);
-Gvox.destroy_adapter_context(output_ctx);
-Gvox.destroy_adapter_context(parse_ctx);
-Gvox.destroy_adapter_context(serialize_ctx);
+GVOX.destroy_adapter_context(input_ctx);
+GVOX.destroy_adapter_context(output_ctx);
+GVOX.destroy_adapter_context(parse_ctx);
+GVOX.destroy_adapter_context(serialize_ctx);
 
-Gvox.destroy_context(gvox_ctx);
+GVOX.destroy_context(gvox_ctx);
 
-Gvox.close();
+GVOX.close();
 ```
