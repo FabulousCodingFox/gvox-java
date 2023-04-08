@@ -1,6 +1,6 @@
 package de.fabulousfox.gvox_java.errors;
 
-public class GvoxAdapterContextNullException extends RuntimeException {
+public class GvoxAdapterContextNullException extends GvoxRuntimeError {
     public GvoxAdapterContextNullException() {
         super("Gvox adapter context is null or hasn't been created before.");
     }
