@@ -28,12 +28,12 @@ public class GvoxByteBufferOutputAdapterConfig implements GvoxBaseAdapterInfo {
     }
 
     public long getBufferSize() {
-        //TODO
-        return 0;
+        MemorySegment bufferSize = MemorySegment.ofAddress(bufferSizePointer.address(), 8);
+        return bufferSize.get(ValueLayout.JAVA_LONG, 0);
     }
 
     public byte[] getBufferContent() {
-        //TODO
-        return new byte[(int) getBufferSize()];
+        MemorySegment buffer = MemorySegment.ofAddress(bufferPointer.address(), getBufferSize());
+        return buffer.asByteBuffer().array();
     }
 }
