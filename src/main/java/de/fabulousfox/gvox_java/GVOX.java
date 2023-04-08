@@ -32,10 +32,18 @@ import java.util.List;
 
 import static java.lang.foreign.ValueLayout.*;
 
-public class Gvox {
-    private Gvox() {
+/**
+ * The main class of the gvox-java library.
+ * It provides the static methods to create a context and to load and save voxels.
+ * It also provides the static methods to create the adapter configurations.
+ **/
+public class GVOX {
+    private GVOX() {
     }
 
+    /**
+     * The version of the gvox-java library.
+     **/
     public static final String VERSION = "1.2.5";
 
     private static boolean initialized = false;
@@ -59,7 +67,7 @@ public class Gvox {
                 Path temp = Files.createTempFile("resource-", ".dll");
                 String path = "win64/gvox" + VERSION.replace(".", "_") + ".dll";
 
-                InputStream is = Gvox.class.getClassLoader().getResourceAsStream(path);
+                InputStream is = GVOX.class.getClassLoader().getResourceAsStream(path);
                 if(is == null) throw new RuntimeException("Failed to load native library");
 
                 Files.copy(is, temp, StandardCopyOption.REPLACE_EXISTING);
@@ -74,6 +82,9 @@ public class Gvox {
         initialized = true;
     }
 
+    /**
+     * Frees all resources used by the gvox-java library.
+     */
     public static void close() {
         if (!initialized) return;
         for (MemorySegment mem : contexts.values()) {
@@ -83,6 +94,10 @@ public class Gvox {
         initialized = false;
     }
 
+    /**
+     * Creates a new context.
+     * @return The new context.
+     */
     public static GvoxContext create_context() {
         checkInit();
         MemorySegment mem = __GvoxNativeIncludeInterface.gvox_create_context();
@@ -91,6 +106,10 @@ public class Gvox {
         return ctx;
     }
 
+    /**
+     * Destroys the given context.
+     * @param context The context to destroy.
+     */
     public static void destroy_context(GvoxContext context) {
         checkInit();
         MemorySegment mem = contexts.getOrDefault(context, null);
@@ -99,6 +118,11 @@ public class Gvox {
         contexts.remove(context);
     }
 
+    /**
+     * Gets the result status of the last operation.
+     * @param ctx The context to get the result from.
+     * @return The result status.
+     */
     public static GvoxResult get_result(GvoxContext ctx) {
         checkInit();
         MemorySegment mem = contexts.getOrDefault(ctx, null);
@@ -106,6 +130,11 @@ public class Gvox {
         return GvoxResult.fromInt(__GvoxNativeIncludeInterface.gvox_get_result(mem));
     };
 
+    /**
+     * Gets the result message of the last operation.
+     * @param ctx The context to get the result message from.
+     * @return The result message.
+     */
     public static String get_result_message(GvoxContext ctx) {
         checkInit();
         MemorySegment contextMem = contexts.getOrDefault(ctx, null);
@@ -119,6 +148,10 @@ public class Gvox {
         return str_buffer.getUtf8String(0);
     };
 
+    /**
+     * Pops the result status of the last operation.
+     * @param ctx The context to pop the result from.
+     */
     public static void pop_result(GvoxContext ctx) {
         checkInit();
         MemorySegment contextMem = contexts.getOrDefault(ctx, null);
@@ -126,6 +159,12 @@ public class Gvox {
         __GvoxNativeIncludeInterface.gvox_pop_result(contextMem);
     };
 
+    /**
+     * Gets the input adapter object from the given name.
+     * @param context The context to get the adapter from.
+     * @param name The name of the adapter.
+     * @return The adapter object.
+     */
     public static GvoxAdapter get_input_adapter(GvoxContext context, String name) {
         checkInit();
         MemorySegment contextMem = contexts.getOrDefault(context, null);
@@ -137,6 +176,12 @@ public class Gvox {
         return adapter;
     }
 
+    /**
+     * Gets the output adapter object from the given name.
+     * @param context The context to get the adapter from.
+     * @param name The name of the adapter.
+     * @return The adapter object.
+     */
     public static GvoxAdapter get_output_adapter(GvoxContext context, String name) {
         checkInit();
         MemorySegment contextMem = contexts.getOrDefault(context, null);
@@ -148,6 +193,12 @@ public class Gvox {
         return adapter;
     }
 
+    /**
+     * Gets the parsing adapter object from the given name.
+     * @param context The context to get the adapter from.
+     * @param name The name of the adapter.
+     * @return The adapter object.
+     */
     public static GvoxAdapter get_parse_adapter(GvoxContext context, String name) {
         checkInit();
         MemorySegment contextMem = contexts.getOrDefault(context, null);
@@ -159,6 +210,12 @@ public class Gvox {
         return adapter;
     }
 
+    /**
+     * Gets the serialization adapter object from the given name.
+     * @param context The context to get the adapter from.
+     * @param name The name of the adapter.
+     * @return The adapter object.
+     */
     public static GvoxAdapter get_serialize_adapter(GvoxContext context, String name) {
         checkInit();
         MemorySegment contextMem = contexts.getOrDefault(context, null);
@@ -170,6 +227,13 @@ public class Gvox {
         return adapter;
     }
 
+    /**
+     * Creates an adapter context from the given adapter and its settings.
+     * @param context The context to create the adapter context from.
+     * @param adapter The adapter to create the adapter context from.
+     * @param config The configuration of the adapter.
+     * @return The adapter context.
+     */
     public static GvoxAdapterContext create_adapter_context(GvoxContext context, GvoxAdapter adapter, GvoxBaseAdapterInfo config) {
         checkInit();
         MemorySegment contextMem = contexts.getOrDefault(context, null);
@@ -252,6 +316,10 @@ public class Gvox {
         return ctx;
     }
 
+    /**
+     * Destroys the given adapter context.
+     * @param adapterContext The adapter context to destroy.
+     */
     public static void destroy_adapter_context(GvoxAdapterContext adapterContext) {
         checkInit();
         MemorySegment adapterContextMem = adapterContexts.getOrDefault(adapterContext, null);
@@ -259,6 +327,15 @@ public class Gvox {
         __GvoxNativeIncludeInterface.gvox_destroy_adapter_context(adapterContextMem);
     }
 
+    /**
+     * Blits a region of the input context to the output context.
+     * @param inputContext The input context.
+     * @param outputContext The output context.
+     * @param parseContext The parse context.
+     * @param serializeContext The serialize context.
+     * @param range The region range.
+     * @param channels The channels to blit.
+     */
     public static void blit_region(
             GvoxAdapterContext inputContext,
             GvoxAdapterContext outputContext,
@@ -283,6 +360,15 @@ public class Gvox {
         __GvoxNativeIncludeInterface.gvox_blit_region(inputContextMem, outputContextMem, parseContextMem, serializeContextMem, regionRange, targetChannels);
     }
 
+    /**
+     * Blits a region of the input context to the output context.
+     * @param inputContext The input context.
+     * @param outputContext The output context.
+     * @param parseContext The parse context.
+     * @param serializeContext The serialize context.
+     * @param range The region range.
+     * @param channels The channels to blit.
+     */
     public static void blit_region_parse_driven(
             GvoxAdapterContext inputContext,
             GvoxAdapterContext outputContext,
@@ -307,6 +393,15 @@ public class Gvox {
         __GvoxNativeIncludeInterface.gvox_blit_region_parse_driven(inputContextMem, outputContextMem, parseContextMem, serializeContextMem, regionRange, targetChannels);
     }
 
+    /**
+     * Blits a region of the input context to the output context.
+     * @param inputContext The input context.
+     * @param outputContext The output context.
+     * @param parseContext The parse context.
+     * @param serializeContext The serialize context.
+     * @param range The region range.
+     * @param channels The channels to blit.
+     */
     public static void blit_region_serialize_driven(
             GvoxAdapterContext inputContext,
             GvoxAdapterContext outputContext,
