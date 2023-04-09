@@ -6,11 +6,31 @@
 Java bindings for the GVOX voxel data library (https://github.com/GabeRundlett/gvox)
 
 # IMPORTANT!
-This project is not finished. The adapter api is not implemented yet, as well as several features of the consumer api
+This project is not finished; The adapter api is not implemented yet
+It is also using preview features of the JDK that are subject to change at any time and therefore requires at least JDK 20. 
 
 ## Installation (Maven)
 1. [Authenticate GitHub Packages](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry#authenticating-to-github-packages)
 2. [Add this to your pom.xml](https://github.com/FabulousCodingFox/gvox-java/packages/1833313)
+3. Add additional compiler arguments using this snippet
+```xml
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.10.1</version>
+            <configuration>
+                <source>${java.version}</source>
+                <target>${java.version}</target>
+                <compilerArgs>
+                    <arg>--enable-preview</arg>
+                </compilerArgs>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
+```
 
 ## Usage
 Check the [gvox wiki](https://github.com/GabeRundlett/gvox/wiki) for more detailed instructions. Here i only provide the java equivalent of the demo snippet
